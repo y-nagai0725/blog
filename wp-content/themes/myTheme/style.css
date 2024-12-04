@@ -152,6 +152,7 @@ html {
 body {
   font-family: "Roboto", "Noto Sans JP", sans-serif;
   font-weight: 400;
+  font-style: normal;
   color: #3e3e3e;
   line-height: 1.8;
 }
@@ -169,4 +170,8 @@ img {
   display: block;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.code {
+  font-family: "Source Code Pro", sans-serif;
 }/*# sourceMappingURL=style.css.map */
