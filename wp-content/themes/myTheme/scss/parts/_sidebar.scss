@@ -1,0 +1,9 @@
+@use "../global" as *;
+
+.sidebar {
+  width: 100%;
+
+  @media screen and (min-width: 1024px) {
+    flex: 0 0 324px;
+  }
+}

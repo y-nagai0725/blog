@@ -1,1 +1,6 @@
 @use "../setting" as *;
+
+@mixin contents-width {
+  width: 100%;
+  max-width: 1280px;
+}

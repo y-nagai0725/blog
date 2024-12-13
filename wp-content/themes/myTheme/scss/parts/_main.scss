@@ -1,0 +1,40 @@
+@use "../global" as *;
+
+.main {
+}
+
+.wrapper {
+  background-color: $bg-gray;
+
+  @media screen and (min-width: 1024px) {
+    padding: 40px 0;
+  }
+}
+
+.container {
+  width: 100%;
+  padding: 2rem 2rem;
+  background-color: $bg-inner-white;
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (min-width: 768px) {
+    padding: 4rem 3rem 1.6rem;
+  }
+
+  @media screen and (min-width: 1024px) {
+    max-width: 1180px;
+    padding: 40px;
+    margin: 0 auto;
+    flex-direction: row;
+    gap: 40px;
+  }
+}
+
+.contents {
+  width: 100%;
+
+  @media screen and (min-width: 1024px) {
+    flex: 1 1 auto;
+  }
+}

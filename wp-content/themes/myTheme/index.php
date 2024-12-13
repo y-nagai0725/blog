@@ -5,6 +5,7 @@
       <div class="contents">
 
       </div>
+      <?php get_sidebar(); ?>
     </div>
   </div>
 </main>
