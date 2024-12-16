@@ -13,6 +13,169 @@
   }
 
   &__inner {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media screen and (min-width: 768px) {
+
+    }
+
+    @media screen and (min-width: 1024px) {
+
+    }
+  }
+
+  &__title {
 
   }
+
+  &__title-link {
+    padding: 10px 0;
+  }
+
+  &__title-image {
+    width: 150px;
+
+    @media screen and (min-width: 1024px) {
+      width: 217px;
+    }
+  }
+
+  &__right-box {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    position: relative;
+
+    @media screen and (min-width: 1024px) {
+      gap: 40px;
+    }
+  }
+
+  &__category-wrapper {
+    display: none;
+
+    @media screen and (min-width: 1024px) {
+      display: block;
+      position: relative;
+
+      @media (any-hover: hover) {
+        &:hover nav {
+          visibility: visible;
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &__category {
+    @media screen and (min-width: 1024px) {
+      padding: 10px 20px 10px 0;
+      font-size: 14px;
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(calc(-50% - 1px));
+        background: url(images/caret-down.svg) center center / cover;
+        width: 11px;
+        height: 6px;
+      }
+    }
+  }
+
+  &__nav {
+    @media screen and (min-width: 1024px) {
+      position: absolute;
+      top: 100%;
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+
+  &__searchform-wrapper {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100vw;
+
+    .searchform {
+
+    }
+
+    .searchform-text-box {
+
+    }
+
+    .searchform-button {
+      display: block;
+      width: 20px;
+      height: 20px;
+      background: url(images/search-gray.svg) center center / cover;
+    }
+
+    @media screen and (min-width: 1024px) {
+      position: static;
+      width: auto;
+
+      .searchform {
+
+      }
+
+      .searchform-text-box {
+
+      }
+
+      .searchform-button {
+
+      }
+    }
+  }
+
+  &__contact-link {
+    display: none;
+
+    @media screen and (min-width: 1024px) {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 30px;
+      border-radius: 100vmax;
+      background-color: $blue;
+      font-size: 14px;
+      font-weight: 700;
+      color: $text-white;
+
+      &::before {
+        content: "";
+        display: block;
+        width: 22px;
+        height: 16px;
+        background: url(images/mail.svg) center center / cover;
+      }
+    }
+  }
+
+  &__search-button {
+    display: block;
+
+    @media screen and (min-width: 1024px) {
+      display: none;
+    }
+  }
+
+  &__hamburger-menu-button {
+    display: block;
+
+    @media screen and (min-width: 1024px) {
+      display: none;
+    }
+  }
+
 }

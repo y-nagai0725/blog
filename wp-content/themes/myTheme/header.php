@@ -18,9 +18,27 @@
       }
       ?>
       <<?php echo $title_tag ?> class="header__title">
-        <a href="<?php echo home_url() ?>">
-          <img src="<?php echo get_template_directory_uri() ?>/images/logo_black.svg" alt="<?php echo bloginfo("name") ?>">
+        <a class="header__title-link" href="<?php echo home_url() ?>">
+          <img class="header__title-image" src="<?php echo get_template_directory_uri() ?>/images/title-logo-black.svg" alt="<?php echo bloginfo("name") ?>">
         </a>
       </<?php echo $title_tag ?>>
+      <div class="header__right-box">
+        <div class="header__category-wrapper">
+          <p class="header__category">カテゴリー</p>
+          <?php
+          wp_nav_menu(array(
+            'theme_location' => 'header_nav',
+            'container' => 'nav',
+            'container_class' => 'header__nav',
+          ));
+          ?>
+        </div>
+        <div class="header__searchform-wrapper">
+          <?php get_search_form(); ?>
+        </div>
+        <a href="" class="header__contact-link">お問い合わせ</a>
+        <button class="header__search-button"></button>
+        <button class="header__hamburger-menu-button"></button>
+      </div>
     </div>
   </header>
