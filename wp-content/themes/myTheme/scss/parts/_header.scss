@@ -1,15 +1,25 @@
 @use "../global" as *;
 
 .header {
-  background-color: $bg-inner-white;
+  width: 100%;
   height: 60px;
+  padding: 0 0 0 20px;
+  background-color: $bg-inner-white;
+  box-shadow: $box-shadow-contents;
+  position: fixed;
+  z-index: 100;
 
   @media screen and (min-width: 768px) {
-
+    padding: 0 0 0 30px;
   }
 
   @media screen and (min-width: 1024px) {
     height: 90px;
+    padding: 0 40px;
+  }
+
+  @media screen and (min-width: 1480px) {
+    padding: 0 150px;
   }
 
   &__inner {
@@ -19,16 +29,10 @@
     align-items: center;
 
     @media screen and (min-width: 768px) {
-
     }
 
     @media screen and (min-width: 1024px) {
-
     }
-  }
-
-  &__title {
-
   }
 
   &__title-link {
@@ -47,7 +51,6 @@
     height: 100%;
     display: flex;
     align-items: center;
-    gap: 30px;
     position: relative;
 
     @media screen and (min-width: 1024px) {
@@ -104,36 +107,86 @@
     top: 100%;
     right: 0;
     width: 100vw;
+    height: 60px;
+    background-color: $bg-gray;
+    transition: clip-path 0.3s ease-out;
+    clip-path: inset(0 0 100% 0);
+
+    &.js-actived {
+      clip-path: inset(0 0 0 0);
+    }
 
     .searchform {
-
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
     }
 
     .searchform-text-box {
+      width: calc(100% - 60px);
+      height: 100%;
+      padding: 0 0 0 20px;
+      font-size: 14px;
 
+      &::placeholder {
+        color: $text-black-thin;
+      }
     }
 
     .searchform-button {
-      display: block;
+      height: 100%;
+      width: 60px;
+      display: grid;
+      place-content: center;
+    }
+
+    .searchform-button-icon {
+      display: inline-block;
       width: 20px;
       height: 20px;
       background: url(images/search-gray.svg) center center / cover;
     }
 
-    @media screen and (min-width: 1024px) {
-      position: static;
-      width: auto;
-
-      .searchform {
-
-      }
-
+    @media screen and (min-width: 768px) {
       .searchform-text-box {
-
+        width: calc(100% - 80px);
+        padding: 0 0 0 30px;
+        font-size: 16px;
       }
 
       .searchform-button {
+        width: 80px;
+      }
+    }
 
+    @media screen and (min-width: 1024px) {
+      position: static;
+      width: auto;
+      height: auto;
+      background-color: transparent;
+      clip-path: none;
+
+      &.js-actived {
+        clip-path: none;
+      }
+
+      .searchform {
+        width: 230px;
+        height: 40px;
+        border: 2px solid $border-gray;
+        border-radius: 4px;
+      }
+
+      .searchform-text-box {
+        width: calc(100% - 52px);
+        padding: 0 0 0 16px;
+        font-size: 14px;
+      }
+
+      .searchform-button {
+        cursor: pointer;
+        width: 52px;
       }
     }
   }
@@ -162,20 +215,37 @@
     }
   }
 
-  &__search-button {
-    display: block;
-
-    @media screen and (min-width: 1024px) {
-      display: none;
-    }
-  }
-
+  &__search-button,
   &__hamburger-menu-button {
-    display: block;
+    width: 60px;
+    height: 100%;
+    display: grid;
+    place-content: center;
+
+    @media screen and (min-width: 768px) {
+      width: 80px;
+    }
 
     @media screen and (min-width: 1024px) {
       display: none;
     }
   }
 
+  &__search-button-icon {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: url(images/search-black.svg) center center / cover;
+
+    &.js-actived {
+      background: url(images/close-black.svg) center center / cover;
+    }
+  }
+
+  &__hamburger-menu-button-icon {
+    display: block;
+    width: 20px;
+    height: 14px;
+    background: url(images/hamburger-menu.svg) center center / cover;
+  }
 }

@@ -37,8 +37,8 @@
           <?php get_search_form(); ?>
         </div>
         <a href="" class="header__contact-link">お問い合わせ</a>
-        <button class="header__search-button"></button>
-        <button class="header__hamburger-menu-button"></button>
+        <button class="header__search-button"><span class="header__search-button-icon"></span></button>
+        <button class="header__hamburger-menu-button"><span class="header__hamburger-menu-button-icon"></span></button>
       </div>
     </div>
   </header>
