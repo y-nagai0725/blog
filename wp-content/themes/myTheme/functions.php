@@ -11,6 +11,7 @@ add_action('wp_enqueue_scripts', 'myTheme_enqueue_googleFont');
 add_action('wp_enqueue_scripts', 'myTheme_enqueue_style_script');
 
 register_nav_menu('header_nav', 'ヘッダー');
+register_nav_menu('header_nav-sp', 'ヘッダーsp');
 register_nav_menu('footer_nav', 'フッター');
 
 
@@ -33,5 +34,5 @@ function myTheme_enqueue_style_script()
 {
 
   wp_enqueue_style('main_style', get_template_directory_uri() . '/style.css');
-  wp_enqueue_script('common_script', get_template_directory_uri() . '/js/header-script.js', array(), '1.0.0', true);
+  wp_enqueue_script('header_script', get_template_directory_uri() . '/js/header-script.js', array(), '1.0.0', true);
 }

@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><?php echo bloginfo("name") ?></title>
   <?php wp_head(); ?>
 </head>
 
@@ -36,9 +37,20 @@
         <div class="header__searchform-wrapper">
           <?php get_search_form(); ?>
         </div>
-        <a href="" class="header__contact-link">お問い合わせ</a>
+        <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="header__contact-link">お問い合わせ</a>
         <button class="header__search-button"><span class="header__search-button-icon"></span></button>
         <button class="header__hamburger-menu-button"><span class="header__hamburger-menu-button-icon"></span></button>
       </div>
+    </div>
+    <div class="header__mask"></div>
+    <div class="header__nav-sp-wrapper">
+      <button class="header__close-button"><span class="header__close-button-icon"></span></button>
+      <?php
+      wp_nav_menu(array(
+        'theme_location' => 'header_nav-sp',
+        'container' => 'nav',
+        'container_class' => 'header__nav-sp',
+      ));
+      ?>
     </div>
   </header>

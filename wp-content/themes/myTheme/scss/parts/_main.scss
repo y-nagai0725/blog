@@ -13,13 +13,13 @@
 
 .container {
   width: 100%;
-  padding: 2rem 2rem;
+  padding: 20px 20px;
   background-color: $bg-inner-white;
   display: flex;
   flex-direction: column;
 
   @media screen and (min-width: 768px) {
-    padding: 4rem 3rem 1.6rem;
+    padding: 40px 30px 16px;
   }
 
   @media screen and (min-width: 1024px) {
