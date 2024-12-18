@@ -18,15 +18,16 @@ body {
   font-style: normal;
   color: $text-black;
   line-height: 1.8;
+}
+
+* {
   letter-spacing: 0.05em;
 }
 
 h1,
 h2,
 h3,
-h4,
-h5,
-h6 {
+h4 {
   font-weight: 700;
 }
 
