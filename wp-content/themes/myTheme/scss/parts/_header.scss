@@ -7,6 +7,8 @@
   background-color: $bg-inner-white;
   box-shadow: $box-shadow-contents;
   position: fixed;
+  top: 0;
+  left: 0;
   z-index: 100;
 
   @media screen and (min-width: 768px) {

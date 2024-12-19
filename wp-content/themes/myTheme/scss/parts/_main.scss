@@ -14,20 +14,23 @@
 .container {
   width: 100%;
   padding: 20px 20px;
+  margin-top: 140px;
   background-color: $bg-inner-white;
   display: flex;
   flex-direction: column;
 
   @media screen and (min-width: 768px) {
     padding: 40px 30px 16px;
+    margin-top: 150px;
   }
 
   @media screen and (min-width: 1024px) {
     max-width: 1180px;
     padding: 40px;
-    margin: 0 auto;
+    margin: 180px auto 0;
     flex-direction: row;
     gap: 40px;
+    box-shadow: $box-shadow-contents;
   }
 }
 
