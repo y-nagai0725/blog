@@ -54,6 +54,7 @@
     display: flex;
     align-items: center;
     gap: 4px;
+    letter-spacing: 0;
 
     &::before {
       content: "";
@@ -74,7 +75,7 @@
 
   &__post-date {
     &::before {
-      background: url(images/time.svg) center center / cover;
+      background: url(images/clock.svg) center center / cover;
     }
   }
 
