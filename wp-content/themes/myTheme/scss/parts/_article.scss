@@ -90,4 +90,95 @@
 
   &__footer {
   }
+
+  &__category-wrapper {
+    margin-bottom: 16px;
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 8px;
+      background-color: $blue;
+      color: $text-white;
+      border-radius: 3px;
+      border: 1px solid $blue;
+      font-size: 13px;
+      transition:
+        color 0.3s ease-out,
+        background-color 0.3s ease-out;
+
+      &::before {
+        content: "";
+        width: 24px;
+        height: 17px;
+        background: url(images/folder-white.svg) center center / cover;
+        transition: background-image 0.3s ease-out;
+      }
+
+      @media (any-hover: hover) {
+        &:hover {
+          color: $blue;
+          background-color: $text-white;
+
+          &::before {
+            background: url(images/folder-blue.svg) center center / cover;
+          }
+        }
+      }
+    }
+  }
+
+  &__tag-wrapper {
+    margin-bottom: 32px;
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 8px;
+      color: $blue;
+      border-radius: 3px;
+      border: 1px solid $blue;
+      font-size: 13px;
+      transition:
+        color 0.3s ease-out,
+        background-color 0.3s ease-out;
+
+      &::before {
+        content: "";
+        width: 17px;
+        height: 17px;
+        background: url(images/tag-blue.svg) center center / cover;
+        transition: background-image 0.3s ease-out;
+      }
+
+      @media (any-hover: hover) {
+        &:hover {
+          color: $text-white;
+          background-color: $blue;
+
+          &::before {
+            background: url(images/tag-white.svg) center center / cover;
+          }
+        }
+      }
+    }
+
+    @media screen and (min-width: 768px) {
+      margin-bottom: 40px;
+    }
+  }
 }

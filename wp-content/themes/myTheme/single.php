@@ -24,8 +24,21 @@
                 <?php endif; ?>
               </div>
             </div>
-            <div class="article__main"></div>
-            <div class="article__footer"></div>
+            <div class="article__main">
+              <?php the_content(); ?>
+            </div>
+            <div class="article__footer">
+              <?php if (has_category()): ?>
+                <div class="article__category-wrapper">
+                  <?php the_category(); ?>
+                </div>
+              <?php endif; ?>
+              <?php if (has_tag()): ?>
+                <div class="article__tag-wrapper">
+                  <?php the_tags('<ul><li>', '</li><li>', '</li></ul>'); ?>
+                </div>
+              <?php endif; ?>
+            </div>
           </article>
         <?php endif; ?>
       </div>

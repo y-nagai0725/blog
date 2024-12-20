@@ -10,7 +10,7 @@
       'container_class' => 'footer__nav',
     ));
     ?>
-    <p class="footer__copyright">&copy; 2024 <?php echo bloginfo("name") ?>.</p>
+    <span class="footer__copyright">&copy; 2024 <?php echo bloginfo("name") ?>.</span>
   </div>
 </footer>
 <?php wp_footer(); ?>
