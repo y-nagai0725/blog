@@ -38,6 +38,26 @@
                   <?php the_tags('<ul><li>', '</li><li>', '</li></ul>'); ?>
                 </div>
               <?php endif; ?>
+              <?php
+              $prevPost = get_adjacent_post(true, '', true);
+              $nextPost = get_adjacent_post(true, '', false);
+              if ($prevPost || $nextPost): ?>
+                <div class="article__post-link-wrapper">
+                  <?php if ($prevPost): ?>
+                    <a class="article__post-link prev" href="<?php echo get_permalink($prevPost->ID) ?>">
+                      <div class="article__post-thumbnail-wrapper"><?php echo get_the_post_thumbnail($prevPost->ID, 'thumbnail') ?></div>
+                      <span class="article__post-title"><?php echo get_the_title($prevPost->ID) ?></span>
+                    </a>
+                  <?php endif; ?>
+                  <?php if ($nextPost): ?>
+                    <a class="article__post-link next" href="<?php echo get_permalink($nextPost->ID) ?>">
+                      <span class="article__post-title"><?php echo get_the_title($nextPost->ID) ?></span>
+                      <div class="article__post-thumbnail-wrapper"><?php echo get_the_post_thumbnail($nextPost->ID, 'thumbnail') ?></div>
+                    </a>
+                  <?php endif; ?>
+                </div>
+              <?php endif; ?>
+              <span class="article__recommend-text">RECOMMEND</span>
             </div>
           </article>
         <?php endif; ?>
