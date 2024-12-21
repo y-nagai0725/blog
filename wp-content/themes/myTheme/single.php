@@ -69,7 +69,7 @@
                     <li class="article__recommend-list">
                       <a href="<?php echo get_permalink($posts[$i]->ID) ?>" class="article__recommend-link">
                         <div class="article__recommend-image-wrapper">
-                          <?php echo get_the_post_thumbnail($posts[$i]->ID, 'thumbnail') ?>
+                          <?php echo get_the_post_thumbnail($posts[$i]->ID, 'medium') ?>
                         </div>
                         <span class="article__recommend-title"><?php echo get_the_title($posts[$i]->ID) ?></span>
                       </a>

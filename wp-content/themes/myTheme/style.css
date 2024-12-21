@@ -178,6 +178,7 @@ a {
 }
 
 img {
+  width: 100%;
   display: block;
   -o-object-fit: cover;
      object-fit: cover;
@@ -734,7 +735,7 @@ img {
 }
 .footer__copyright {
   display: block;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   color: #fff;
 }
@@ -1039,6 +1040,7 @@ img {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  margin-left: auto;
 }
 .article__post-link.next::before {
   right: 8px;
@@ -1064,6 +1066,7 @@ img {
   overflow: hidden;
 }
 .article__recommend-text {
+  display: block;
   font-size: 18px;
   font-weight: 700;
   margin-bottom: 24px;
@@ -1072,4 +1075,57 @@ img {
   .article__recommend-text {
     font-size: 20px;
   }
+}
+.article__no-text {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+@media screen and (min-width: 768px) {
+  .article__no-text {
+    font-size: 20px;
+  }
+}
+.article__recommend-list-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+.article__recommend-list {
+  width: calc(50% - 8px);
+}
+@media screen and (min-width: 768px) {
+  .article__recommend-list {
+    width: calc((100% - 48px) / 4);
+  }
+}
+.article__recommend-link {
+  height: 100%;
+  -webkit-transition: opacity 0.3s ease-out, -webkit-transform 0.3s ease-out;
+  transition: opacity 0.3s ease-out, -webkit-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out, -webkit-transform 0.3s ease-out;
+}
+@media (any-hover: hover) {
+  .article__recommend-link:hover {
+    -webkit-transform: translateY(-2px);
+            transform: translateY(-2px);
+    opacity: 0.7;
+  }
+}
+.article__recommend-image-wrapper {
+  aspect-ratio: 16/9;
+  margin-bottom: 8px;
+}
+.article__recommend-title {
+  font-size: 12px;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }/*# sourceMappingURL=style.css.map */
