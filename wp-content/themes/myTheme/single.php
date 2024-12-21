@@ -58,6 +58,25 @@
                 </div>
               <?php endif; ?>
               <span class="article__recommend-text">RECOMMEND</span>
+              <?php
+              $posts = get_posts(array("numberposts" => 4, "category" => get_the_category()[0]->ID, "exclude" => get_the_ID()));
+              if (!$posts):
+              ?>
+                <span class="article__no-text">関連記事はありません</span>
+              <?php else: ?>
+                <ul class="article__recommend-list-wrapper">
+                  <?php for ($i = 0; $i < count($posts); $i++): ?>
+                    <li class="article__recommend-list">
+                      <a href="<?php echo get_permalink($posts[$i]->ID) ?>" class="article__recommend-link">
+                        <div class="article__recommend-image-wrapper">
+                          <?php echo get_the_post_thumbnail($posts[$i]->ID, 'thumbnail') ?>
+                        </div>
+                        <span class="article__recommend-title"><?php echo get_the_title($posts[$i]->ID) ?></span>
+                      </a>
+                    </li>
+                  <?php endfor; ?>
+                </ul>
+              <?php endif; ?>
             </div>
           </article>
         <?php endif; ?>
