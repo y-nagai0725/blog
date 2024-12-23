@@ -14,10 +14,8 @@ register_nav_menu('header_nav', 'ヘッダー');
 register_nav_menu('header_nav-sp', 'ヘッダーsp');
 register_nav_menu('footer_nav', 'フッター');
 
-
-
-
-
+add_shortcode("article_link", "article_link_shortcode");
+add_shortcode("emphasis_area", "emphasis_area_shortcode");
 
 function myTheme_enqueue_googleFont()
 {
@@ -28,7 +26,6 @@ function myTheme_enqueue_googleFont()
 
   echo '<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Roboto:wght@400;700&family=Source+Code+Pro:wght@200..900&display=swap" rel="stylesheet">' . PHP_EOL;
 }
-
 
 function myTheme_enqueue_style_script()
 {
@@ -61,4 +58,59 @@ function article_link_shortcode($atts)
   return $html;
 }
 
-add_shortcode("article_link", "article_link_shortcode");
+function emphasis_area_shortcode($atts)
+{
+  $atts = shortcode_atts(array(
+    "text" => "",
+    "list" => "",
+    "mark" => "1",
+    "type" => "1",
+    "reverse" => "1",
+  ), $atts);
+
+  $textHtml = "";
+  if (!empty($atts["text"])) {
+    $textHtml = '<span class="text">' . $atts["text"] . '</span>';
+  }
+
+  $listHtml = "";
+  if (!empty($atts["list"])) {
+    $listHtml = '<ul class="list">';
+    $list = explode(",", $atts["list"]);
+    for ($i = 0; $i < count($list); $i++) {
+      $listHtml .= '<li>' . $list[$i] . '</li>';
+    }
+    $listHtml .= '</ul>';
+  }
+
+  if ($atts["mark"] === "1") {
+    $mark = " mark";
+  } else {
+    $mark = "";
+  }
+
+  $typeArray = array("1" => "emphasis", "2" => "check", "3" => "attention", "4" => "note", "5" => "hint");
+  if (array_key_exists($atts["type"], $typeArray)) {
+    $type = " " . $typeArray[$atts["type"]];
+  } else {
+    $type = "";
+  }
+
+  if ($atts["reverse"] === "1") {
+    $reverse = false;
+  } else {
+    $reverse = true;
+  }
+
+  $html = '<div class="emphasis-area' . $mark . $type . '">';
+  if ($reverse) {
+    $html .= $listHtml;
+    $html .= $textHtml;
+  } else {
+    $html .= $textHtml;
+    $html .= $listHtml;
+  }
+  $html .= '</div>';
+
+  return $html;
+}

@@ -308,6 +308,128 @@
         background: url(images/modified.svg) center center / cover;
       }
     }
+
+    .emphasis-area {
+      padding: 14px 10px;
+      margin-bottom: 16px;
+      border-radius: 4px;
+      border-width: 2px;
+      border-style: solid;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      &.mark {
+        padding: 14px 10px 14px 40px;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 14px;
+          left: 10px;
+          width: 22px;
+          height: 22px;
+        }
+
+        &.emphasis::before {
+          background: url(images/emphasis-mark.svg) center center / cover;
+        }
+
+        &.check::before {
+          background: url(images/check-mark.svg) center center / cover;
+        }
+
+        &.attention::before {
+          height: 19px;
+          background: url(images/attention-mark.svg) center center / cover;
+        }
+
+        &.note::before {
+          background: url(images/note-mark.svg) center center / cover;
+        }
+
+        &.hint::before {
+          background: url(images/hint-mark.svg) center center / cover;
+        }
+      }
+
+      &.emphasis {
+        background-color: $bg-emphasis;
+        border-color: $border-emphasis;
+        color: $text-emphasis;
+      }
+
+      &.check {
+        background-color: $bg-check;
+        border-color: $border-check;
+        color: $text-check;
+      }
+
+      &.attention {
+        background-color: $bg-attention;
+        border-color: $border-attention;
+        color: $text-attention;
+      }
+
+      &.note {
+        background-color: $bg-note;
+        border-color: $border-note;
+        color: $text-note;
+      }
+
+      &.hint {
+        background-color: $bg-hint;
+        border-color: $border-hint;
+        color: $text-hint;
+      }
+
+      @media screen and (min-width: 768px) {
+        padding: 16px;
+        margin-bottom: 24px;
+        gap: 16px;
+
+        &.mark {
+          padding: 16px 16px 16px 48px;
+
+          &::before {
+            top: 16px;
+            left: 12px;
+            width: 25px;
+            height: 25px;
+          }
+
+          &.attention::before {
+            height: 22px;
+          }
+        }
+      }
+
+      .text {
+        font-size: 14px;
+        line-height: 1.8;
+
+        @media screen and (min-width: 768px) {
+          font-size: 16px;
+        }
+      }
+
+      .list {
+        display: flex;
+        flex-direction: column;
+
+        li {
+          font-size: 14px;
+          line-height: 1.8;
+        }
+
+        @media screen and (min-width: 768px) {
+          li {
+            font-size: 16px;
+          }
+        }
+      }
+    }
   }
 
   &__footer {
