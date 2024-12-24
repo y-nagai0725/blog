@@ -16,6 +16,7 @@ register_nav_menu('footer_nav', 'フッター');
 
 add_shortcode("article_link", "article_link_shortcode");
 add_shortcode("emphasis_area", "emphasis_area_shortcode");
+add_shortcode("list_area", "list_area_shortcode");
 
 function myTheme_enqueue_googleFont()
 {
@@ -111,6 +112,39 @@ function emphasis_area_shortcode($atts)
     $html .= $listHtml;
   }
   $html .= '</div>';
+
+  return $html;
+}
+
+function list_area_shortcode($atts)
+{
+  $atts = shortcode_atts(array(
+    "type" => "1",
+    "items" => "",
+  ), $atts);
+
+  if ($atts["type"] === "1") {
+    $type = "circle-mark";
+  } else if ($atts["type"] === "2") {
+    $type = "check-mark";
+  } else if ($atts["type"] === "3") {
+    $type = "number-mark";
+  } else {
+    $type = "no-mark";
+  }
+
+  $list = "";
+  if (!empty($atts["items"])) {
+    $list = explode(",", $atts["items"]);
+  }
+
+  $html = '<ul class="list-area">';
+  if (!empty($list)) {
+    for ($i = 0; $i < count($list); $i++) {
+      $html .= '<li class="'.$type.'">' . $list[$i] . '</li>';
+    }
+  }
+  $html .= '</ul>';
 
   return $html;
 }
