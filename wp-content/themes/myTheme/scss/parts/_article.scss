@@ -358,30 +358,55 @@
         background-color: $bg-emphasis;
         border-color: $border-emphasis;
         color: $text-emphasis;
+
+        .list-area li::before {
+          background-color: #efc701;
+        }
       }
 
       &.check {
         background-color: $bg-check;
         border-color: $border-check;
         color: $text-check;
+
+        .list-area li::before {
+          background-color: #62a63f;
+        }
       }
 
       &.attention {
         background-color: $bg-attention;
         border-color: $border-attention;
         color: $text-attention;
+
+        .list-area li::before {
+          background-color: #a63f3f;
+        }
       }
 
       &.note {
         background-color: $bg-note;
         border-color: $border-note;
         color: $text-note;
+
+        .list-area li::before {
+          background-color: #a6843f;
+        }
       }
 
       &.hint {
         background-color: $bg-hint;
         border-color: $border-hint;
         color: $text-hint;
+
+        .list-area li::before {
+          background-color: #3f84a6;
+        }
+      }
+
+      &.normal {
+        border-color: $border-gray;
+        border-radius: 0px;
       }
 
       @media screen and (min-width: 768px) {
@@ -414,20 +439,8 @@
         }
       }
 
-      .list {
-        display: flex;
-        flex-direction: column;
-
-        li {
-          font-size: 14px;
-          line-height: 1.8;
-        }
-
-        @media screen and (min-width: 768px) {
-          li {
-            font-size: 16px;
-          }
-        }
+      .list-area {
+        margin-bottom: 0;
       }
     }
 
@@ -498,6 +511,46 @@
             border-bottom: 2px solid $blue;
           }
         }
+      }
+    }
+
+    .table-area {
+      margin-bottom: 24px;
+      .row {
+        border-top: 1px solid $border-gray;
+        display: flex;
+
+        &:last-of-type {
+          border-bottom: 1px solid $border-gray;
+        }
+      }
+
+      &.no-bg dt {
+        background-color: transparent;
+      }
+
+      dt,
+      dd {
+        padding: 14px;
+        font-size: 14px;
+        line-height: 1.8;
+        border-left: 1px solid $border-gray;
+
+        @media screen and (min-width: 768px) {
+          padding: 16px;
+          font-size: 16px;
+        }
+      }
+
+      dt {
+        width: 33%;
+        flex-shrink: 0;
+        background-color: $bg-gray;
+      }
+
+      dd {
+        flex-grow: 1;
+        border-right: 1px solid $border-gray;
       }
     }
   }

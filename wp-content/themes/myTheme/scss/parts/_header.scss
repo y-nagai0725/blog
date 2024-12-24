@@ -384,7 +384,8 @@
     }
 
     a {
-      padding: 14px 20px;
+      display: block;
+      padding: 17px 20px;
       font-size: 14px;
       font-weight: 700;
       color: $text-white;
@@ -404,7 +405,7 @@
 
     @media screen and (min-width: 768px) {
       a {
-        padding: 16px 30px;
+        padding: 19px 30px;
         font-size: 16px;
 
         &::after {

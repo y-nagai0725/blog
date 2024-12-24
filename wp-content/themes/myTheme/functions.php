@@ -64,6 +64,7 @@ function emphasis_area_shortcode($atts)
   $atts = shortcode_atts(array(
     "text" => "",
     "list" => "",
+    "list_mark" => "1",
     "mark" => "1",
     "type" => "1",
     "reverse" => "1",
@@ -74,12 +75,21 @@ function emphasis_area_shortcode($atts)
     $textHtml = '<span class="text">' . $atts["text"] . '</span>';
   }
 
+  $listMark = "";
+  if($atts["list_mark"] === "1"){
+    $listMark = "circle-mark";
+  }else if($atts["list_mark"] === "2"){
+    $listMark = "check-mark";
+  }else if($atts["list_mark"] === "3"){
+    $listMark = "number-mark";
+  }
+
   $listHtml = "";
   if (!empty($atts["list"])) {
-    $listHtml = '<ul class="list">';
+    $listHtml = '<ul class="list-area">';
     $list = explode(",", $atts["list"]);
     for ($i = 0; $i < count($list); $i++) {
-      $listHtml .= '<li>' . $list[$i] . '</li>';
+      $listHtml .= '<li class="'.$listMark.'">' . $list[$i] . '</li>';
     }
     $listHtml .= '</ul>';
   }
@@ -90,7 +100,7 @@ function emphasis_area_shortcode($atts)
     $mark = "";
   }
 
-  $typeArray = array("1" => "emphasis", "2" => "check", "3" => "attention", "4" => "note", "5" => "hint");
+  $typeArray = array("1" => "emphasis", "2" => "check", "3" => "attention", "4" => "note", "5" => "hint", "0" => "normal");
   if (array_key_exists($atts["type"], $typeArray)) {
     $type = " " . $typeArray[$atts["type"]];
   } else {
