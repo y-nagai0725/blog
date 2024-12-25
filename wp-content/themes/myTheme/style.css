@@ -1295,46 +1295,238 @@ img {
     border-bottom: 2px solid #1bb4d4;
   }
 }
-.article__main .table-area {
+.article__main .dl-table {
   margin-bottom: 24px;
 }
-.article__main .table-area .row {
+.article__main .dl-table .row {
   border-top: 1px solid rgba(123, 123, 123, 0.3);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
-.article__main .table-area .row:last-of-type {
+.article__main .dl-table .row:last-of-type {
   border-bottom: 1px solid rgba(123, 123, 123, 0.3);
 }
-.article__main .table-area.no-bg dt {
+.article__main .dl-table.no-bg dt {
   background-color: transparent;
 }
-.article__main .table-area dt,
-.article__main .table-area dd {
+.article__main .dl-table dt,
+.article__main .dl-table dd {
   padding: 14px;
   font-size: 14px;
   line-height: 1.8;
   border-left: 1px solid rgba(123, 123, 123, 0.3);
 }
 @media screen and (min-width: 768px) {
-  .article__main .table-area dt,
-  .article__main .table-area dd {
+  .article__main .dl-table dt,
+  .article__main .dl-table dd {
     padding: 16px;
     font-size: 16px;
   }
 }
-.article__main .table-area dt {
+.article__main .dl-table dt {
   width: 33%;
   -ms-flex-negative: 0;
       flex-shrink: 0;
   background-color: #f7f7f7;
 }
-.article__main .table-area dd {
+.article__main .dl-table dd {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
   border-right: 1px solid rgba(123, 123, 123, 0.3);
+}
+.article__main .table tr {
+  border-top: 1px solid rgba(123, 123, 123, 0.3);
+}
+.article__main .table tr:last-of-type {
+  border-bottom: 1px solid rgba(123, 123, 123, 0.3);
+}
+.article__main .table th {
+  background-color: #f7f7f7;
+  border-left: 1px solid rgba(123, 123, 123, 0.3);
+  padding: 14px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.8;
+  text-align: center;
+}
+.article__main .table th:last-of-type {
+  border-right: 1px solid rgba(123, 123, 123, 0.3);
+}
+@media screen and (min-width: 768px) {
+  .article__main .table th {
+    padding: 16px;
+    font-size: 16px;
+  }
+}
+.article__main .table td {
+  border-left: 1px solid rgba(123, 123, 123, 0.3);
+  padding: 14px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.article__main .table td:last-of-type {
+  border-right: 1px solid rgba(123, 123, 123, 0.3);
+}
+@media screen and (min-width: 768px) {
+  .article__main .table td {
+    padding: 16px;
+    font-size: 16px;
+  }
+}
+.article__main .step-area-square {
+  margin-bottom: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.article__main .step-area-square li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+  position: relative;
+}
+.article__main .step-area-square li:not(:last-of-type) {
+  padding-bottom: 40px;
+}
+.article__main .step-area-square li:not(:last-of-type)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 24px;
+  width: 1px;
+  height: 100%;
+  background-color: #1bb4d4;
+  z-index: 1;
+}
+@media screen and (min-width: 768px) {
+  .article__main .step-area-square li {
+    gap: 16px;
+  }
+}
+.article__main .step-area-square .step-square {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  width: 49px;
+  height: 49px;
+  border-radius: 5px;
+  background-color: #1bb4d4;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 4px;
+  position: relative;
+  z-index: 2;
+}
+.article__main .step-area-square .step-square .step {
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+}
+.article__main .step-area-square .step-square .number {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+}
+.article__main .step-area-square .text {
+  padding-top: 10px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+@media screen and (min-width: 768px) {
+  .article__main .step-area-square .text {
+    font-size: 16px;
+  }
+}
+.article__main .step-area-circle {
+  margin-bottom: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.article__main .step-area-circle li {
+  padding-left: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 8px;
+  position: relative;
+}
+.article__main .step-area-circle li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 100vmax;
+  background-color: #1bb4d4;
+}
+.article__main .step-area-circle li:not(:last-of-type)::after {
+  content: "";
+  position: absolute;
+  top: 16px;
+  left: 5px;
+  width: 2px;
+  height: calc(100% - 20px);
+  background-color: rgba(123, 123, 123, 0.3);
+}
+.article__main .step-area-circle li:nth-of-type(even)::before {
+  border: 2px solid #1bb4d4;
+  background-color: transparent;
+}
+.article__main .step-area-circle li:not(:last-of-type) {
+  padding-bottom: 16px;
+}
+@media screen and (min-width: 768px) {
+  .article__main .step-area-circle li {
+    gap: 10px;
+  }
+  .article__main .step-area-circle li:not(:last-of-type) {
+    padding-bottom: 24px;
+  }
+}
+.article__main .step-area-circle .step {
+  font-size: 14px;
+  font-weight: 700;
+}
+@media screen and (min-width: 768px) {
+  .article__main .step-area-circle .step {
+    font-size: 15px;
+  }
+}
+.article__main .step-area-circle .text {
+  font-size: 14px;
+  line-height: 1.8;
+}
+@media screen and (min-width: 768px) {
+  .article__main .step-area-circle .text {
+    font-size: 16px;
+  }
 }
 .article__category-wrapper {
   margin-bottom: 16px;

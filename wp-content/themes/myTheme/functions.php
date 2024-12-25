@@ -17,6 +17,7 @@ register_nav_menu('footer_nav', 'フッター');
 add_shortcode("article_link", "article_link_shortcode");
 add_shortcode("emphasis_area", "emphasis_area_shortcode");
 add_shortcode("list_area", "list_area_shortcode");
+add_shortcode("step_area", "step_area_shortcode");
 
 function myTheme_enqueue_googleFont()
 {
@@ -76,11 +77,11 @@ function emphasis_area_shortcode($atts)
   }
 
   $listMark = "";
-  if($atts["list_mark"] === "1"){
+  if ($atts["list_mark"] === "1") {
     $listMark = "circle-mark";
-  }else if($atts["list_mark"] === "2"){
+  } else if ($atts["list_mark"] === "2") {
     $listMark = "check-mark";
-  }else if($atts["list_mark"] === "3"){
+  } else if ($atts["list_mark"] === "3") {
     $listMark = "number-mark";
   }
 
@@ -89,7 +90,7 @@ function emphasis_area_shortcode($atts)
     $listHtml = '<ul class="list-area">';
     $list = explode(",", $atts["list"]);
     for ($i = 0; $i < count($list); $i++) {
-      $listHtml .= '<li class="'.$listMark.'">' . $list[$i] . '</li>';
+      $listHtml .= '<li class="' . $listMark . '">' . $list[$i] . '</li>';
     }
     $listHtml .= '</ul>';
   }
@@ -151,10 +152,41 @@ function list_area_shortcode($atts)
   $html = '<ul class="list-area">';
   if (!empty($list)) {
     for ($i = 0; $i < count($list); $i++) {
-      $html .= '<li class="'.$type.'">' . $list[$i] . '</li>';
+      $html .= '<li class="' . $type . '">' . $list[$i] . '</li>';
     }
   }
   $html .= '</ul>';
+
+  return $html;
+}
+
+function step_area_shortcode($atts)
+{
+  $atts = shortcode_atts(array(
+    "list" => "",
+    "type" => "1",
+  ), $atts);
+
+  $list = "";
+  if (!empty($atts["list"])) {
+    $list = explode(",", $atts["list"]);
+  } else {
+    return;
+  }
+
+  if ($atts["type"] === "1") {
+    $html = '<ul class="step-area-square">';
+    for ($i = 0; $i < count($list); $i++) {
+      $html .= '<li><div class="step-square"><span class="step">STEP</span><span class="number">' . ($i + 1) . '</span></div><span class="text">' . $list[$i] . '</span></li>';
+    }
+    $html .= '</ul>';
+  } else if ($atts["type"] === "2") {
+    $html = '<ul class="step-area-circle">';
+    for ($i = 0; $i < count($list); $i++) {
+      $html .= '<li><span class="step">STEP ' . ($i + 1) . '</span><span class="text">' . $list[$i] . '</span></li>';
+    }
+    $html .= '</ul>';
+  }
 
   return $html;
 }

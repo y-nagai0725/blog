@@ -514,7 +514,7 @@
       }
     }
 
-    .table-area {
+    .dl-table {
       margin-bottom: 24px;
       .row {
         border-top: 1px solid $border-gray;
@@ -551,6 +551,189 @@
       dd {
         flex-grow: 1;
         border-right: 1px solid $border-gray;
+      }
+    }
+
+    .table {
+      tr {
+        border-top: 1px solid $border-gray;
+
+        &:last-of-type {
+          border-bottom: 1px solid $border-gray;
+        }
+      }
+
+      th {
+        background-color: $bg-gray;
+        border-left: 1px solid $border-gray;
+        padding: 14px;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1.8;
+        text-align: center;
+
+        &:last-of-type {
+          border-right: 1px solid $border-gray;
+        }
+
+        @media screen and (min-width: 768px) {
+          padding: 16px;
+          font-size: 16px;
+        }
+      }
+
+      td {
+        border-left: 1px solid $border-gray;
+        padding: 14px;
+        font-size: 14px;
+        line-height: 1.8;
+
+        &:last-of-type {
+          border-right: 1px solid $border-gray;
+        }
+
+        @media screen and (min-width: 768px) {
+          padding: 16px;
+          font-size: 16px;
+        }
+      }
+    }
+
+    .step-area-square {
+      margin-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+
+      li {
+        display: flex;
+        gap: 10px;
+        position: relative;
+
+        &:not(:last-of-type) {
+          padding-bottom: 40px;
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 24px;
+            width: 1px;
+            height: 100%;
+            background-color: $blue;
+            z-index: 1;
+          }
+        }
+
+        @media screen and (min-width: 768px) {
+          gap: 16px;
+        }
+      }
+
+      .step-square {
+        flex-shrink: 0;
+        width: 49px;
+        height: 49px;
+        border-radius: 5px;
+        background-color: $blue;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        position: relative;
+        z-index: 2;
+
+        .step {
+          color: $text-white;
+          font-size: 11px;
+          font-weight: 700;
+        }
+
+        .number {
+          color: $text-white;
+          font-size: 15px;
+          font-weight: 700;
+        }
+      }
+
+      .text {
+        padding-top: 10px;
+        font-size: 14px;
+        line-height: 1.8;
+
+        @media screen and (min-width: 768px) {
+          font-size: 16px;
+        }
+      }
+    }
+
+    .step-area-circle {
+      margin-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+
+      li {
+        padding-left: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        position: relative;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 12px;
+          height: 12px;
+          border-radius: 100vmax;
+          background-color: $blue;
+        }
+
+        &:not(:last-of-type)::after {
+          content: "";
+          position: absolute;
+          top: 16px;
+          left: 5px;
+          width: 2px;
+          height: calc(100% - 20px);
+          background-color: $border-gray;
+        }
+
+        &:nth-of-type(even)::before {
+          border: 2px solid $blue;
+          background-color: transparent;
+        }
+
+        &:not(:last-of-type) {
+          padding-bottom: 16px;
+        }
+
+        @media screen and (min-width: 768px) {
+          gap: 10px;
+
+          &:not(:last-of-type) {
+            padding-bottom: 24px;
+          }
+        }
+      }
+
+      .step {
+        font-size: 14px;
+        font-weight: 700;
+
+        @media screen and (min-width: 768px) {
+          font-size: 15px;
+        }
+      }
+
+      .text {
+        font-size: 14px;
+        line-height: 1.8;
+
+        @media screen and (min-width: 768px) {
+          font-size: 16px;
+        }
       }
     }
   }
