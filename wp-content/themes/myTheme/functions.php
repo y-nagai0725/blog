@@ -37,6 +37,42 @@ function myTheme_enqueue_style_script()
   wp_enqueue_script('common_script', get_template_directory_uri() . '/js/common-script.js', array(), '1.0.0', true);
 }
 
+function breadcrumb()
+{
+  if (is_front_page()) {
+    // トップページの場合何も表示しない
+    return;
+  }
+
+  $html = '<div class="breadcrumb"><ul>';
+  $home = '<li><a href="' . home_url() . '">HOME</a></li>';
+  $html .= $home;
+
+  if (is_category()) {
+    // カテゴリページ
+
+  } else if (is_archive()) {
+    // アーカイブ・タグページ
+  } else if (is_single()) {
+    // 投稿ページ
+    $category = get_the_category();
+
+    if ($category) {
+      $html .= '<li><a href="' . get_category_link($category[0]->term_id) . '">' . $category[0]->name . '</a></li>';
+    }
+
+    $html .= '<li>' . get_the_title() . '</li>';
+  } else if (is_page()) {
+    // 固定ページ
+  } else if (is_404()) {
+    // 404ページ
+  }
+
+
+  $html .= '</ul></div>';
+  return $html;
+}
+
 function article_link_shortcode($atts)
 {
   $id = $atts["id"];

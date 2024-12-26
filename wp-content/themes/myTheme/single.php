@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 <main class="main">
   <div class="wrapper">
+    <?php echo breadcrumb(); ?>
     <div class="container">
       <div class="contents">
         <?php if (have_posts()): the_post(); ?>
