@@ -9,7 +9,7 @@
             <div class="article__header">
               <div class="article__thumbnail-wrapper">
                 <?php if (has_category()): ?>
-                  <span class="article__category-tag"><?php echo get_the_category()[0]->name ?></span>
+                  <a class="article__category-tag" href="<?php echo get_category_link(get_the_category()[0]->term_id) ?>"><?php echo get_the_category()[0]->name ?></a>
                 <?php endif; ?>
                 <?php
                 if (has_post_thumbnail()) {
