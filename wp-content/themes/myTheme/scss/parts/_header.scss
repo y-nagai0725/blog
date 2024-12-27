@@ -443,7 +443,7 @@
     box-shadow: $box-shadow-card;
     transform: translateY(100px);
     transition:
-      box-shadow 0.3s ease-out,
+      background-color 0.3s ease-out,
       transform 0.3s ease-out;
 
     &.js-actived {
@@ -459,11 +459,17 @@
       border-top: 2px solid $blue;
       border-right: 2px solid $blue;
       transform: translate(-50%, -50%) rotate(-45deg);
+      transition: border-color 0.3s ease-out;
     }
 
     @media (any-hover: hover) {
       &:hover {
-        box-shadow: $box-shadow-card-hover;
+        background-color: $yellow;
+
+        .caret-top {
+          border-top: 2px solid $text-black;
+          border-right: 2px solid $text-black;
+        }
       }
     }
 

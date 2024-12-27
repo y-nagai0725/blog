@@ -79,11 +79,12 @@
 
 .container {
   width: 100%;
-  padding: 20px 20px;
+  padding: 20px 20px 16px;
   margin-top: 20px;
   background-color: $bg-inner-white;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 
   @media screen and (min-width: 768px) {
     padding: 40px 30px 16px;
