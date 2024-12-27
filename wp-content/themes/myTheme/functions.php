@@ -50,9 +50,15 @@ function breadcrumb()
 
   if (is_category()) {
     // カテゴリページ
+    $category = get_the_category();
+
+    if ($category) {
+      $html .= '<li>' . $category[0]->name . '</li>';
+    }
 
   } else if (is_archive()) {
     // アーカイブ・タグページ
+    //TODO
   } else if (is_single()) {
     // 投稿ページ
     $category = get_the_category();
@@ -64,10 +70,11 @@ function breadcrumb()
     $html .= '<li>' . get_the_title() . '</li>';
   } else if (is_page()) {
     // 固定ページ
+    $html .= '<li>' . get_the_title() . '</li>';
   } else if (is_404()) {
     // 404ページ
+    $html .= '<li>' . get_the_title() . '</li>';
   }
-
 
   $html .= '</ul></div>';
   return $html;
