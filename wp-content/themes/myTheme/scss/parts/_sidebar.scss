@@ -6,4 +6,25 @@
   @media screen and (min-width: 1024px) {
     flex: 0 0 324px;
   }
+
+  &__inner {
+  }
+
+  &__heading {
+    padding: 12px 16px;
+    background-color: $blue;
+    color: $text-white;
+    font-size: 14px;
+    font-weight: 700;
+
+    @media screen and (min-width: 768px) {
+      padding: 14px 16px;
+      font-size: 16px;
+    }
+
+    @media screen and (min-width: 1024px) {
+      padding: 12px 16px;
+      font-size: 14px;
+    }
+  }
 }

@@ -55,7 +55,6 @@ function breadcrumb()
     if ($category) {
       $html .= '<li>' . $category[0]->name . '</li>';
     }
-
   } else if (is_archive()) {
     // アーカイブ・タグページ
     //TODO
