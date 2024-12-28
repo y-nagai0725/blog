@@ -4,11 +4,11 @@ $posts = get_posts(array("numberposts" => 5,));
 ?>
 <aside id="sidebar" class="sidebar">
   <div class="sidebar__inner">
-    <h5 class="sidebar__heading">Author</h5>
     <div class="sidebar__author-area">
-      <div class="sidebar__author-bg">
+      <div class="sidebar__author-bg-wrapper">
+        <div class="sidebar__author-bg"></div>
         <div class="sidebar__author-image-wrapper">
-          <img src="<?php echo get_template_directory_uri() ?>/images/sidebar_profile.png" alt="みかん箱 プロフィール画像" class="sidebar__author-image">
+          <img src="<?php echo get_template_directory_uri() ?>/images/sidebar_profile.png" alt="プロフィール画像" class="sidebar__author-image">
         </div>
       </div>
       <div class="sidebar__author-information">
@@ -16,13 +16,14 @@ $posts = get_posts(array("numberposts" => 5,));
         <span class="sidebar__author-text">サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル</span>
         <ul class="sidebar__sns-wrapper">
           <li class="sidebar__sns-list">
-            <a href="" class="sidebar__sns-link"></a>
+            <a href="https://github.com/y-nagai0725" class="sidebar__sns-link" title="github" target="_blank">
+              <img src="<?php echo get_template_directory_uri() ?>/images/github.svg" alt="github" class="sidebar__sns-link-image">
+            </a>
           </li>
           <li class="sidebar__sns-list">
-            <a href="" class="sidebar__sns-link"></a>
-          </li>
-          <li class="sidebar__sns-list">
-            <a href="" class="sidebar__sns-link"></a>
+            <a href="https://portfolio.mikanbako.jp/" class="sidebar__sns-link" title="ポートフォリオ" target="_blank">
+              <img src="<?php echo get_template_directory_uri() ?>/images/website.svg" alt="" class="sidebar__sns-link-image">
+            </a>
           </li>
         </ul>
       </div>
