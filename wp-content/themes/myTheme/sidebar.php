@@ -48,4 +48,9 @@ $posts = get_posts(array("numberposts" => 5,));
       <?php endforeach; ?>
     </ul>
   </div>
+  <div class="sidebar__contents-table-wrapper">
+    <div class="sidebar__contents-table">
+
+    </div>
+  </div>
 </aside>
