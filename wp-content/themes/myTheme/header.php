@@ -53,7 +53,8 @@
       ));
       ?>
     </div>
-    <div class="header__top-back-button-wrapper">
+    <div class="header__button-wrapper">
+      <button class="header__contents-table-button"><span class="contents-table-icon"></button>
       <button class="header__top-back-button"><span class="caret-top"></span></button>
     </div>
   </header>

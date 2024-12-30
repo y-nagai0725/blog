@@ -49,8 +49,10 @@ $posts = get_posts(array("numberposts" => 5,));
     </ul>
   </div>
   <div class="sidebar__contents-table-wrapper">
-    <div class="sidebar__contents-table">
-
+    <div class="sidebar__close-button-wrapper">
+      <button class="sidebar__close-button"><span class="close-button-icon"></span></button>
     </div>
+    <ul class="sidebar__contents-table">
+    </ul>
   </div>
 </aside>
