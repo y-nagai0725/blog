@@ -52,8 +52,10 @@ $posts = get_posts(array("numberposts" => 5,));
     <div class="sidebar__close-button-wrapper">
       <button class="sidebar__close-button"><span class="close-button-icon"></span></button>
     </div>
-    <ul class="sidebar__contents-table">
-      <li class="title">目次</li>
-    </ul>
+    <div class="sidebar__table-outer">
+      <span class="sidebar__table-title">目次</span>
+      <ul class="sidebar__contents-table">
+      </ul>
+    </div>
   </div>
 </aside>
