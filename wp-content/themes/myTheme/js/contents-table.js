@@ -56,7 +56,11 @@ window.addEventListener("scroll", function () {
 
     const headingPosition = headingPositionList[i] - adjustmentPositionValue;
     const nextHeadingPosition = headingPositionList[i + 1] - adjustmentPositionValue;
-    if (headingPosition <= currentScrollPosition && currentScrollPosition < nextHeadingPosition) {
+    if (currentScrollPosition < headingPosition) {
+      activateContentsTableItem(0);
+      activedContentsTableItemIndex = 0;
+      break;
+    } else if (headingPosition <= currentScrollPosition && currentScrollPosition < nextHeadingPosition) {
       activateContentsTableItem(i);
       activedContentsTableItemIndex = i;
       break;
@@ -64,7 +68,7 @@ window.addEventListener("scroll", function () {
   }
 });
 
-window.addEventListener("resize", function(){
+window.addEventListener("resize", function () {
   setHeadingPositionList();
 });
 
@@ -76,6 +80,27 @@ function setHeadingPositionList() {
   });
 }
 
+function scrollSidebarContentsTable(targetIndex) {
+  let totalGapValue = 0;
+  let totalItemHeight = 0;
+  let totalScrollValue = 0;
+
+  const listElements = sidebarContentsTable.querySelectorAll("li");
+  for (i = 0; i < targetIndex; i++) {
+    const listHeight = listElements[i].offsetHeight;
+    totalItemHeight += listHeight;
+  }
+
+  const styles = window.getComputedStyle(sidebarContentsTable, "");
+  const setGapValue = Number(styles.getPropertyValue("gap").replace(/px/g, ""));
+  for (i = 0; i < targetIndex; i++) {
+    totalGapValue += setGapValue;
+  }
+
+  totalScrollValue = totalItemHeight + totalGapValue;
+  sidebarContentsTable.scrollTop = totalScrollValue;
+}
+
 function activateContentsTableItem(targetIndex) {
   //目次項目
   const list = sidebarContentsTable.children;
@@ -85,4 +110,6 @@ function activateContentsTableItem(targetIndex) {
 
   //アクティブにする
   list[targetIndex].classList.add("js-actived");
+
+  scrollSidebarContentsTable(targetIndex);
 }
