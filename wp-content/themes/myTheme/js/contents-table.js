@@ -4,15 +4,75 @@ const sidebarContentsTable = document.querySelector(".sidebar__contents-table");
 //記事メイン部分
 const article = document.querySelector(".article__main");
 
-//
-const headerHeightPc = 90;
-const headerHeightSp = 60;
-
 //見出し位置リスト
 let headingPositionList = [];
 
 //現在アクティブな目次項目
 let activedContentsTableItemIndex = 0;
+
+function createArticleContentsTable() {
+  const headingList = article.querySelectorAll("h2, h3");
+  const firstH2Element = article.querySelector("h2");
+  const contentsTable = document.createElement("ul");
+  contentsTable.className = "contents-table";
+  let tempH3Ul;
+  let tempH2Li;
+
+  headingList.forEach((heading, index) => {
+    const tag = heading.tagName;
+    const title = heading.textContent;
+
+    const li = document.createElement("li");
+    let href;
+    if (heading.getAttribute("id")) {
+      href = "#" + heading.getAttribute("id");
+    } else {
+      heading.setAttribute("id", "heading-" + index);
+      href = "#heading-" + index;
+    }
+
+    const a = document.createElement("a");
+    a.setAttribute("href", href);
+    a.textContent = title;
+    li.appendChild(a);
+
+    if (tag === "H2") {
+      li.className = "h2-list-item";
+
+      if (tempH3Ul) {
+        tempH2Li.appendChild(tempH3Ul);
+        tempH3Ul = null;
+      }
+
+      tempH2Li = li;
+      contentsTable.appendChild(tempH2Li);
+
+    } else if (tag === "H3") {
+      li.className = "h3-list-item";
+
+      if (!tempH3Ul) {
+        tempH3Ul = document.createElement("ul");
+        tempH3Ul.className = "h3-list";
+      }
+
+      tempH3Ul.appendChild(li);
+
+      if (index === headingList.length - 1) {
+        tempH2Li.appendChild(tempH3Ul);
+        contentsTable.appendChild(tempH2Li);
+      }
+    }
+  });
+
+  const contentsTableWrapperElement = document.createElement("div");
+  contentsTableWrapperElement.className = "contents-table-wrapper";
+  const titleElement = document.createElement("span");
+  titleElement.className = "title";
+  titleElement.textContent = "目次";
+  contentsTableWrapperElement.appendChild(titleElement);
+  contentsTableWrapperElement.appendChild(contentsTable);
+  article.insertBefore(contentsTableWrapperElement, firstH2Element);
+}
 
 function createSidebarContentsTable() {
   const headingList = article.querySelectorAll("h2, h3");
@@ -41,36 +101,6 @@ function createSidebarContentsTable() {
     sidebarContentsTable.appendChild(li);
   });
 }
-
-createSidebarContentsTable();
-
-window.addEventListener("scroll", function () {
-  const currentScrollPosition = window.scrollY;
-  const adjustmentPositionValue = window.innerWidth >= 1024 ? headerHeightPc : headerHeightSp;
-  for (let i = 0; i < headingPositionList.length; i++) {
-    if (i === headingPositionList.length - 1) {
-      activateContentsTableItem(i);
-      activedContentsTableItemIndex = i;
-      break;
-    }
-
-    const headingPosition = headingPositionList[i] - adjustmentPositionValue;
-    const nextHeadingPosition = headingPositionList[i + 1] - adjustmentPositionValue;
-    if (currentScrollPosition < headingPosition) {
-      activateContentsTableItem(0);
-      activedContentsTableItemIndex = 0;
-      break;
-    } else if (headingPosition <= currentScrollPosition && currentScrollPosition < nextHeadingPosition) {
-      activateContentsTableItem(i);
-      activedContentsTableItemIndex = i;
-      break;
-    }
-  }
-});
-
-window.addEventListener("resize", function () {
-  setHeadingPositionList();
-});
 
 function setHeadingPositionList() {
   headingPositionList = [];
@@ -113,3 +143,35 @@ function activateContentsTableItem(targetIndex) {
 
   scrollSidebarContentsTable(targetIndex);
 }
+
+window.addEventListener("scroll", function () {
+  const currentScrollPosition = window.scrollY;
+  const headerHeight = document.querySelector(".header").offsetHeight;
+  const adjustmentPositionValue = headerHeight;
+  for (let i = 0; i < headingPositionList.length; i++) {
+    if (i === headingPositionList.length - 1) {
+      activateContentsTableItem(i);
+      activedContentsTableItemIndex = i;
+      break;
+    }
+
+    const headingPosition = headingPositionList[i] - adjustmentPositionValue;
+    const nextHeadingPosition = headingPositionList[i + 1] - adjustmentPositionValue;
+    if (currentScrollPosition < headingPosition) {
+      activateContentsTableItem(0);
+      activedContentsTableItemIndex = 0;
+      break;
+    } else if (headingPosition <= currentScrollPosition && currentScrollPosition < nextHeadingPosition) {
+      activateContentsTableItem(i);
+      activedContentsTableItemIndex = i;
+      break;
+    }
+  }
+});
+
+window.addEventListener("resize", function () {
+  setHeadingPositionList();
+});
+
+createArticleContentsTable();
+createSidebarContentsTable();
