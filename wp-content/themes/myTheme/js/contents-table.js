@@ -102,8 +102,14 @@ function createSidebarContentsTable() {
   });
 }
 
+/**
+ * 目次対象の見出しの位置を保持する
+ */
 function setHeadingPositionList() {
+  //既存のリストを削除
   headingPositionList = [];
+
+  //目次対象の見出しの位置を取得、リストへ保持
   const headingList = article.querySelectorAll("h2, h3");
   headingList.forEach(heading => {
     headingPositionList.push(heading.getBoundingClientRect().top + window.scrollY);
@@ -131,6 +137,11 @@ function scrollSidebarContentsTable(targetIndex) {
   sidebarContentsTable.scrollTop = totalScrollValue;
 }
 
+/**
+ * 目次項目をアクティブにする
+ *
+ * @param {Number} targetIndex 対象のインデックス
+ */
 function activateContentsTableItem(targetIndex) {
   //目次項目
   const list = sidebarContentsTable.children;
@@ -141,6 +152,7 @@ function activateContentsTableItem(targetIndex) {
   //アクティブにする
   list[targetIndex].classList.add("js-actived");
 
+  //アクティブの項目へスクロール
   scrollSidebarContentsTable(targetIndex);
 }
 
@@ -173,5 +185,8 @@ window.addEventListener("resize", function () {
   setHeadingPositionList();
 });
 
+//記事内の目次作成
 createArticleContentsTable();
+
+//サイドバーの目次作成
 createSidebarContentsTable();
