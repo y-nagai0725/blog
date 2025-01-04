@@ -262,8 +262,8 @@ img {
 }
 @media screen and (min-width: 1024px) and (any-hover: hover) {
   .header__category-wrapper:hover nav {
-    visibility: visible;
-    opacity: 1;
+    -webkit-clip-path: inset(0 0 0 0);
+            clip-path: inset(0 0 0 0);
   }
 }
 @media screen and (min-width: 1024px) {
@@ -288,8 +288,12 @@ img {
   .header__nav {
     position: absolute;
     top: 100%;
-    visibility: hidden;
-    opacity: 0;
+    -webkit-clip-path: inset(0 0 100% 0);
+            clip-path: inset(0 0 100% 0);
+    -webkit-transition: -webkit-clip-path 0.2s ease-out;
+    transition: -webkit-clip-path 0.2s ease-out;
+    transition: clip-path 0.2s ease-out;
+    transition: clip-path 0.2s ease-out, -webkit-clip-path 0.2s ease-out;
   }
   .header__nav ul {
     background-color: #1bb4d4;
@@ -2655,6 +2659,7 @@ img {
   }
 }
 .article__recommend-link {
+  width: 100%;
   height: 100%;
   -webkit-transition: opacity 0.3s ease-out, -webkit-transform 0.3s ease-out;
   transition: opacity 0.3s ease-out, -webkit-transform 0.3s ease-out;
