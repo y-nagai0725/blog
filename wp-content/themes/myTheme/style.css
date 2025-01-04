@@ -1514,9 +1514,7 @@ img {
 }
 @media screen and (min-width: 1024px) {
   .contents {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 auto;
-            flex: 1 1 auto;
+    width: calc(100% - 324px - 40px);
   }
 }
 
@@ -2425,6 +2423,10 @@ img {
   .article__main .contents-table-wrapper .contents-table .h3-list-item::before {
     top: 10px;
   }
+}
+.article__main .hcb_wrap {
+  margin-top: 0 !important;
+  margin-bottom: 24px !important;
 }
 .article__category-wrapper {
   margin-bottom: 16px;

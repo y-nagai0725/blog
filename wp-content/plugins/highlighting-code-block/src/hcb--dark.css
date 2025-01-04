@@ -1,0 +1,376 @@
+@charset "UTF-8";
+/*
+	カラーリングに関係ない共通設定
+	一部、設定によって、PHPから出力されるインラインスタイルで上書きされる
+ */
+:root {
+  --hcb--fz: var(--hcb--fz--base, 14px);
+  --hcb--ff: "Menlo", "Consolas", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Meiryo", sans-serif;
+  --hcb--pY: 1.75em;
+  --hcb--pX: 1.5em;
+  --hcb--radius: 3px;
+  --hcb--linenumW: 3.5ch;
+  --hcb--data-label: attr(data-lang);
+  --hcb--btn-offset: 20px;
+  --hcb--c: #1f1e1e;
+  --hcb--tsh: unset;
+  --hcb--bgc: rgb(248, 246, 246);
+  --hcb--data-label--c: #1f1e1e;
+  --hcb--data-label--bgc: #e8e8e8;
+  --hcb--line-numbers--c: #999;
+  --hcb--highlight-color: rgba(150, 120, 100, 0.1);
+  --hcb--file-icon: url(../../assets/img/file-icon-light.svg);
+  --hcb--scbar-track--bgc: rgba(150, 150, 150, 0.1);
+  --hcb--scbar-thumb--bgc: rgba(150, 150, 150, 0.25);
+}
+
+@media screen and (max-width: 599px) {
+  :root {
+    --hcb--fz: var(--hcb--fz--mobile, 13px);
+  }
+}
+.hcb_wrap.hcb_wrap {
+  position: relative;
+  z-index: 0;
+  display: block;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  padding: 0;
+  font-size: var(--hcb--fz, 14px);
+}
+.hcb_wrap.hcb_wrap > pre {
+  position: static;
+  display: block;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: var(--hcb--pY) var(--hcb--pX);
+  overflow: auto;
+  font-size: inherit;
+  font-family: var(--hcb--ff);
+  line-height: 1.5;
+  letter-spacing: 0.1px;
+  border-radius: var(--hcb--radius, 0);
+  -webkit-overflow-scrolling: touch;
+}
+.hcb_wrap.hcb_wrap > pre,
+.hcb_wrap.hcb_wrap > pre > code {
+  color: var(--hcb--c);
+  white-space: pre;
+  text-align: left;
+  text-shadow: var(--hcb--tsh);
+  word-wrap: normal;
+  word-break: normal;
+  word-spacing: normal;
+  -moz-tab-size: 4;
+    -o-tab-size: 4;
+       tab-size: 4;
+  -webkit-hyphens: none;
+      -ms-hyphens: none;
+          hyphens: none;
+  background: var(--hcb--bgc);
+  border: none;
+}
+.hcb_wrap.hcb_wrap :is(code, span) {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+}
+
+/*
+  Note: .line-highlight の出現位置は、行数表示があるかどうかで変わる。
+    行数表示がある → pre > .line-highlight
+    行数表示がない → pre > code > .line-highlight
+        また、このとき、.line-highlight は data-start, data-end を持つようになる。
+*/
+.hcb_wrap .line-highlight {
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin-top: var(--hcb--pY);
+  padding: 0;
+  font-size: inherit;
+  line-height: inherit;
+  white-space: pre;
+  background: var(--hcb--highlight-color);
+  pointer-events: none;
+}
+.hcb_wrap > .prism.line-numbers {
+  position: static;
+  padding-left: calc(var(--hcb--pX) + var(--hcb--linenumW));
+  counter-reset: linenumber;
+}
+.hcb_wrap > .prism.line-numbers > code {
+  position: relative;
+  white-space: inherit;
+}
+.hcb_wrap .line-numbers-rows {
+  position: absolute;
+  top: -0.125em;
+  left: calc(-1px - var(--hcb--linenumW) - var(--hcb--pX) / 2);
+  min-width: var(--hcb--linenumW);
+  font-size: inherit;
+  border-right: 1px solid var(--hcb--line-numbers--c);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  pointer-events: none;
+}
+.hcb_wrap .line-numbers-rows > span {
+  display: block;
+  letter-spacing: -0.25px;
+  text-align: center;
+  counter-increment: linenumber;
+  pointer-events: none;
+}
+.hcb_wrap .line-numbers-rows > span::before {
+  display: block;
+  color: var(--hcb--line-numbers--c);
+  content: counter(linenumber);
+}
+.hcb_wrap > pre::-webkit-scrollbar {
+  height: 6px;
+}
+.hcb_wrap > pre::-webkit-scrollbar-track {
+  background: var(--hcb--scbar-track--bgc);
+  border: none;
+}
+.hcb_wrap > pre::-webkit-scrollbar-thumb {
+  background: var(--hcb--scbar-thumb--bgc);
+  border-radius: 3px;
+}
+
+:not(pre) > code.prism {
+  padding: 0.1em;
+  white-space: normal;
+  border-radius: 0.3em;
+}
+
+.hcb_wrap > pre::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  min-width: 4em;
+  padding: 0 10px;
+  color: var(--hcb--data-label--c);
+  font-size: 0.925em;
+  font-family: inherit;
+  line-height: 20px;
+  text-align: center;
+  background-color: var(--hcb--data-label--bgc);
+  border-radius: 0 var(--hcb--radius);
+  content: var(--hcb--data-label);
+}
+
+.hcb_wrap > pre[data-show-lang="0"] {
+  --hcb--data-label: none;
+}
+
+.hcb_wrap > pre[data-show-lang="1"] {
+  --hcb--data-label: attr(data-lang);
+}
+
+.hcb_wrap > pre[data-file]::before {
+  padding: 0 8px 0 20px;
+  background-image: var(--hcb--file-icon);
+  background-repeat: no-repeat;
+  background-position: center left 8px;
+  background-size: auto 10px;
+  content: attr(data-file);
+}
+
+/* stylelint-disable-next-line no-duplicate-selectors */
+.hcb_wrap {
+  --hcb-clipbtn-opacity: 0;
+}
+
+.hcb_wrap:hover,
+.hcb-clipboard:focus-visible {
+  --hcb-clipbtn-opacity: 100;
+}
+
+.hcb-clipboard {
+  position: absolute;
+  top: calc(var(--hcb--btn-offset, 0px) + 8px);
+  right: 8px;
+  z-index: 2;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 2.25em;
+  height: 2.25em;
+  padding: 0;
+  color: #000;
+  text-align: center;
+  background: url(../../assets/img/clipboard-to-copy.svg) no-repeat center/64% auto;
+  background-color: rgba(250, 250, 250, 0.8);
+  border: none;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 1px 2px rgba(61, 61, 61, 0.25);
+          box-shadow: 0 1px 2px rgba(61, 61, 61, 0.25);
+  opacity: var(--hcb-clipbtn-opacity);
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
+  -webkit-transition: opacity 0.25s;
+  transition: opacity 0.25s;
+}
+[data-show-lang="0"] + .hcb-clipboard {
+  --hcb--btn-offset: 0px;
+}
+[data-show-lang="1"] + .hcb-clipboard {
+  --hcb--btn-offset: 20px;
+}
+.hcb-clipboard.-done {
+  background-image: url(../../assets/img/clipboard-copied.svg);
+}
+.hcb-clipboard.-done::before {
+  position: absolute;
+  top: 50%;
+  right: calc(4px + 100%);
+  display: block;
+  padding: 2px 4px 2px 2px;
+  color: inherit;
+  font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1;
+  background-color: inherit;
+  border-radius: 8px;
+  content: "✓Copied";
+  translate: 0 -50%;
+}
+
+/*
+  Dark coloring
+*/
+:root {
+  --hcb--c: #f9f9f6;
+  --hcb--bgc: #2d2e29;
+  --hcb--data-label--c: #fff;
+  --hcb--data-label--bgc: #20211f;
+  --hcb--line-numbers--c: #a3a3a3;
+  --hcb--highlight-color: rgba(255, 250, 245, 0.1);
+  --hcb--file-icon: url(../../assets/img/file-icon-dark.svg);
+  --hcb--scbar-track--bgc: rgba(255, 255, 255, 0.1);
+  --hcb--scbar-thumb--bgc: rgba(255, 255, 255, 0.2);
+}
+
+/* ---------------------
+  Syntax Highlight
+ --------------------- */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #a8a897;
+}
+
+.token.punctuation {
+  color: #f8f8f2;
+}
+
+.namespace {
+  opacity: 0.7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted,
+.token.important {
+  color: #ff2c78;
+}
+
+.token.boolean,
+.token.number {
+  color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.char,
+.token.builtin,
+.token.inserted,
+.token.class-name {
+  color: #b4ec43;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+  color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.string {
+  color: #f3e880;
+}
+
+.token.function,
+.token.keyword.def {
+  color: #5fe6ff;
+}
+
+.token.keyword,
+.token.operator {
+  color: #f92672;
+  /* font-weight: bold; */
+}
+
+.token.regex,
+.token.keyword.this {
+  color: #fd971f;
+}
+
+.token.delimiter:not(.symbol) {
+  color: #5294ff;
+}
+
+/* .token.important, */
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic,
+.token.builtin,
+.token.keyword.def {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+/* CSS / SCSS */
+.language-css .token.property,
+.language-scss .token.property,
+.language-json .token.property {
+  color: #5fe6ff;
+}
+
+/* PHP */
+.language-php .token.important.delimiter {
+  font-weight: normal;
+}
+
+/* Ruby */
+.language-ruby .token.interpolation {
+  color: #f8f8f2;
+}
+
+/* JSON */
+.language-json .token.operator {
+  color: #f3e880;
+}/*# sourceMappingURL=hcb--dark.css.map */

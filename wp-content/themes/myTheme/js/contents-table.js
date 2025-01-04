@@ -102,6 +102,23 @@ function createSidebarContentsTable() {
   });
 }
 
+function setLinkClickEvent() {
+  document.querySelectorAll("a[href^='#']").forEach(link => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute("href");
+      const target = document.querySelector(targetId);
+      const targetPosition = target.getBoundingClientRect().top + window.scrollY;
+      const headerHeight = document.querySelector(".header").offsetHeight;
+
+      window.scroll({
+        behavior: "smooth",
+        top: targetPosition - headerHeight,
+      })
+    });
+  });
+}
+
 /**
  * 目次対象の見出しの位置を保持する
  */
@@ -190,3 +207,6 @@ createArticleContentsTable();
 
 //サイドバーの目次作成
 createSidebarContentsTable();
+
+//リンククリック時イベント処理設定
+setLinkClickEvent();
