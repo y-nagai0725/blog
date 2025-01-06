@@ -36,7 +36,7 @@ function myTheme_enqueue_style_script()
   wp_enqueue_script('header_script', get_template_directory_uri() . '/js/header.js', array(), '1.0.0', true);
   wp_enqueue_script('common_script', get_template_directory_uri() . '/js/common.js', array(), '1.0.0', true);
 
-  if (!is_page()) {
+  if (is_single()) {
     wp_enqueue_script('contents_table_script', get_template_directory_uri() . '/js/contents-table.js', array(), '1.0.0', true);
   }
 }

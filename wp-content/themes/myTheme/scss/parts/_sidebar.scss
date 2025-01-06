@@ -319,6 +319,10 @@
       backdrop-filter 0.3s ease-out;
     z-index: 101;
 
+    &.no-display {
+      display: none;
+    }
+
     &.js-actived {
       pointer-events: auto;
       background-color: $bg-black-thin;

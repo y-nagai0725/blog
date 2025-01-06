@@ -48,7 +48,8 @@ $posts = get_posts(array("numberposts" => 5,));
       <?php endforeach; ?>
     </ul>
   </div>
-  <div class="sidebar__contents-table-wrapper">
+  <div class="sidebar__contents-table-wrapper <?php if (!is_single()): echo "no-display";
+                                              endif; ?>">
     <div class="sidebar__close-button-wrapper">
       <button class="sidebar__close-button"><span class="close-button-icon"></span></button>
     </div>
