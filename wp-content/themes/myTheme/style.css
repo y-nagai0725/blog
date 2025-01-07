@@ -2741,11 +2741,21 @@ img {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 24px;
+  gap: 16px;
+}
+@media screen and (min-width: 768px) {
+  .title-area .title {
+    gap: 20px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .title-area .title {
+    gap: 24px;
+  }
 }
 .title-area .title-en {
   color: #fff;
-  font-size: 46px;
+  font-size: 50px;
   font-weight: 700;
   text-transform: capitalize;
 }
@@ -2761,17 +2771,17 @@ img {
 }
 .title-area .title-jp {
   color: #fff;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 700;
 }
 @media screen and (min-width: 768px) {
   .title-area .title-jp {
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 @media screen and (min-width: 1024px) {
   .title-area .title-jp {
-    font-size: 20px;
+    font-size: 18px;
   }
 }
 
@@ -2834,4 +2844,122 @@ img {
   .page-wrapper p.small {
     font-size: 14px;
   }
+}
+
+.loop-contents {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+@media screen and (min-width: 768px) {
+  .loop-contents {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .loop-contents {
+    gap: 32px;
+  }
+}
+.loop-contents .article-link {
+  width: 100%;
+  height: 100%;
+  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
+  -webkit-transition: opacity 0.3s ease-out, -webkit-box-shadow 0.3s ease-out, -webkit-transform 0.3s ease-out;
+  transition: opacity 0.3s ease-out, -webkit-box-shadow 0.3s ease-out, -webkit-transform 0.3s ease-out;
+  transition: box-shadow 0.3s ease-out, transform 0.3s ease-out, opacity 0.3s ease-out;
+  transition: box-shadow 0.3s ease-out, transform 0.3s ease-out, opacity 0.3s ease-out, -webkit-box-shadow 0.3s ease-out, -webkit-transform 0.3s ease-out;
+}
+@media (any-hover: hover) {
+  .loop-contents .article-link:hover {
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    -webkit-transform: translateY(-4px);
+            transform: translateY(-4px);
+    opacity: 0.7;
+  }
+}
+.loop-contents .article-thumbnail-wrapper {
+  width: 100%;
+  aspect-ratio: 16/9;
+  position: relative;
+}
+.loop-contents .article-category {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #fcee21;
+  padding: 6px;
+  font-size: 12px;
+}
+@media screen and (min-width: 768px) {
+  .loop-contents .article-category {
+    padding: 6px 8px;
+    font-size: 13px;
+  }
+}
+.loop-contents .article-text-wrapper {
+  padding: 16px;
+}
+.loop-contents .article-title {
+  margin-bottom: 14px;
+  font-size: 14px;
+  line-height: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+@media screen and (min-width: 768px) {
+  .loop-contents .article-title {
+    font-size: 16px;
+  }
+}
+.loop-contents .article-date-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 16px;
+}
+.loop-contents .article-date-wrapper .post-date,
+.loop-contents .article-date-wrapper .modified-date {
+  font-size: 12px;
+  color: rgba(62, 62, 62, 0.75);
+  line-height: 1;
+  letter-spacing: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 4px;
+}
+.loop-contents .article-date-wrapper .post-date::before,
+.loop-contents .article-date-wrapper .modified-date::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+}
+@media screen and (min-width: 768px) {
+  .loop-contents .article-date-wrapper .post-date,
+  .loop-contents .article-date-wrapper .modified-date {
+    font-size: 14px;
+  }
+  .loop-contents .article-date-wrapper .post-date::before,
+  .loop-contents .article-date-wrapper .modified-date::before {
+    width: 10px;
+    height: 10px;
+  }
+}
+.loop-contents .article-date-wrapper .post-date::before {
+  background: url(images/clock.svg) center center/cover;
+}
+.loop-contents .article-date-wrapper .modified-date::before {
+  background: url(images/modified.svg) center center/cover;
 }/*# sourceMappingURL=style.css.map */
