@@ -4,7 +4,7 @@
     <div class="title-area">
       <div class="title-wrapper">
         <h1 class="title">
-          <span class="title-en"><?php echo ucwords(get_post(get_the_ID())->post_name); ?></span>
+          <span class="title-en"><?php echo get_post(get_the_ID())->post_name; ?></span>
           <span class="title-jp"><?php the_title(); ?></span>
         </h1>
       </div>

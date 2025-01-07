@@ -2747,6 +2747,7 @@ img {
   color: #fff;
   font-size: 46px;
   font-weight: 700;
+  text-transform: capitalize;
 }
 @media screen and (min-width: 768px) {
   .title-area .title-en {
