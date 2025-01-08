@@ -29,11 +29,13 @@ $posts = get_posts(array("numberposts" => 5,));
       </div>
     </div>
     <h5 class="sidebar__heading">カテゴリー</h5>
-    <ul class="sidebar__category-list">
-      <?php foreach ($categories as $category): ?>
-        <li><a href="<?php echo get_category_link($category) ?>"><?php echo $category->name; ?></a></li>
-      <?php endforeach; ?>
-    </ul>
+    <?php
+    wp_nav_menu(array(
+      'theme_location' => 'sidebar_nav',
+      'container' => false,
+      'menu_class' => 'sidebar__category-list',
+    ));
+    ?>
     <h5 class="sidebar__heading">最新の投稿</h5>
     <ul class="sidebar__post-list">
       <?php foreach ($posts as $post): ?>

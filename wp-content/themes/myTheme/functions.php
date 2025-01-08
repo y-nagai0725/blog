@@ -13,6 +13,7 @@ add_action('wp_enqueue_scripts', 'myTheme_enqueue_style_script');
 register_nav_menu('header_nav', 'ヘッダー');
 register_nav_menu('header_nav-sp', 'ヘッダーsp');
 register_nav_menu('footer_nav', 'フッター');
+register_nav_menu('sidebar_nav', 'サイドバー');
 
 add_shortcode("article_link", "article_link_shortcode");
 add_shortcode("emphasis_area", "emphasis_area_shortcode");

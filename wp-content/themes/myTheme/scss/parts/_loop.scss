@@ -117,3 +117,117 @@
     }
   }
 }
+
+.pagination {
+  margin: 40px 0;
+
+  @media screen and (min-width: 768px) {
+    margin: 64px 0;
+  }
+
+  ul {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+
+    @media screen and (min-width: 768px) {
+      gap: 10px;
+    }
+  }
+
+  li {
+  }
+
+  a {
+    width: 32px;
+    height: 32px;
+    border: 2px solid $blue;
+    border-radius: 3px;
+    display: grid;
+    place-content: center;
+    color: $blue;
+    font-size: 12px;
+    position: relative;
+    transition:
+      color 0.3s ease-out,
+      background-color 0.3s ease-out;
+
+    @media (any-hover: hover) {
+      &:hover {
+        color: $text-white;
+        background-color: $blue;
+
+        &.prev::before,
+        &.next::before {
+          border-color: $text-white;
+        }
+      }
+    }
+
+    @media screen and (min-width: 768px) {
+      width: 50px;
+      height: 50px;
+      font-size: 14px;
+    }
+
+    &.prev::before,
+    &.next::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 6px;
+      height: 6px;
+      transition: border-color 0.3s ease-out;
+
+      @media screen and (min-width: 768px) {
+        width: 7px;
+        height: 7px;
+      }
+    }
+
+    &.prev::before {
+      border-left: 2px solid $blue;
+      border-bottom: 2px solid $blue;
+      transform: translate(calc(-50% + 1px), -50%) rotate(45deg);
+    }
+
+    &.next::before {
+      border-right: 2px solid $blue;
+      border-bottom: 2px solid $blue;
+      transform: translate(calc(-50% - 2px), -50%) rotate(-45deg);
+    }
+  }
+
+  span.page-numbers.current {
+    width: 32px;
+    height: 32px;
+    border: 2px solid $border-gray;
+    border-radius: 3px;
+    display: grid;
+    place-content: center;
+    color: $text-black-thin;
+    font-size: 12px;
+
+    @media screen and (min-width: 768px) {
+      width: 50px;
+      height: 50px;
+      font-size: 14px;
+    }
+  }
+
+  span.page-numbers.dots {
+    width: 20px;
+    height: 32px;
+    display: grid;
+    place-content: center;
+    color: $text-black-thin;
+    font-size: 12px;
+
+    @media screen and (min-width: 768px) {
+      width: 30px;
+      height: 50px;
+      font-size: 14px;
+    }
+  }
+}
