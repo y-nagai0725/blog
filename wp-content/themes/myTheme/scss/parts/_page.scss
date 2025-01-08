@@ -76,6 +76,34 @@
       font-size: 18px;
     }
   }
+
+  .title-archive {
+    color: $text-white;
+    font-size: 24px;
+    font-weight: 700;
+
+    @media screen and (min-width: 768px) {
+      font-size: 36px;
+    }
+
+    @media screen and (min-width: 1024px) {
+      font-size: 46px;
+    }
+  }
+
+  .title-sub {
+    color: $text-white;
+    font-size: 18px;
+    font-weight: 700;
+
+    @media screen and (min-width: 768px) {
+      font-size: 24px;
+    }
+
+    @media screen and (min-width: 1024px) {
+      font-size: 32px;
+    }
+  }
 }
 
 .page-wrapper {
