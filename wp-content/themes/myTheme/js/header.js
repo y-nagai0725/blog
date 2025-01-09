@@ -10,6 +10,9 @@ const searchButtonIcon = document.querySelector(".header__search-button-icon");
 //ハンバーガーメニューボタン
 const hamburgerMenuButton = document.querySelector(".header__hamburger-menu-button");
 
+//カテゴリーwrapper
+const categoryWrapper = document.querySelector(".header__category-wrapper");
+
 //画面全体マスク
 const mask = document.querySelector(".header__mask");
 
@@ -87,4 +90,12 @@ window.addEventListener("scroll", function () {
     topBackButton.classList.remove("js-actived");
     contentsTableButton.classList.remove("js-actived");
   }
+});
+
+//カテゴリーWrapperタップ時にメニュー表示
+categoryWrapper.addEventListener("touchstart", function () {
+  categoryWrapper.classList.toggle("js-clicked");
+});
+categoryWrapper.addEventListener("mouseleave", function () {
+  categoryWrapper.classList.remove("js-clicked");
 });

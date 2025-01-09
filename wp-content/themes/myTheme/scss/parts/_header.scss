@@ -76,6 +76,10 @@
       place-content: center;
       position: relative;
 
+      &.js-clicked nav {
+        clip-path: inset(0 0 0 0);
+      }
+
       @media (any-hover: hover) {
         &:hover nav {
           clip-path: inset(0 0 0 0);
@@ -112,7 +116,6 @@
 
       ul {
         background-color: $blue;
-        box-shadow: $box-shadow-contents;
       }
 
       li:not(:last-of-type) {

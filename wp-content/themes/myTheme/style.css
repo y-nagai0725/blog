@@ -259,6 +259,10 @@ img {
     place-content: center;
     position: relative;
   }
+  .header__category-wrapper.js-clicked nav {
+    -webkit-clip-path: inset(0 0 0 0);
+            clip-path: inset(0 0 0 0);
+  }
 }
 @media screen and (min-width: 1024px) and (any-hover: hover) {
   .header__category-wrapper:hover nav {
@@ -297,8 +301,6 @@ img {
   }
   .header__nav ul {
     background-color: #1bb4d4;
-    -webkit-box-shadow: 0 0 15px rgba(102, 102, 102, 0.2);
-            box-shadow: 0 0 15px rgba(102, 102, 102, 0.2);
   }
   .header__nav li:not(:last-of-type) {
     border-bottom: 1px dashed #fff;
