@@ -44,7 +44,7 @@ function myTheme_enqueue_style_script()
 
 function breadcrumb()
 {
-  if (is_front_page()) {
+  if (is_front_page() || is_home()) {
     // トップページの場合何も表示しない
     return;
   }
@@ -53,16 +53,18 @@ function breadcrumb()
   $home = '<li><a href="' . home_url() . '">HOME</a></li>';
   $html .= $home;
 
-  if (is_category()) {
-    // カテゴリページ
-    $category = get_the_category();
-
-    if ($category) {
-      $html .= '<li>' . $category[0]->name . '</li>';
-    }
+  if (is_category() || is_tag()) {
+    // カテゴリページ・タグページ
+    $html .= '<li>' . get_queried_object()->name . '</li>';
   } else if (is_archive()) {
-    // アーカイブ・タグページ
+    // アーカイブページ
     //TODO
+  } elseif (is_search()) {
+    if (get_search_query()) {
+      $html .= '<li>' . get_search_query() . '</li>';
+    } else {
+      $html .= '<li>' . "キーワードなし" . '</li>';
+    }
   } else if (is_single()) {
     // 投稿ページ
     $category = get_the_category();
