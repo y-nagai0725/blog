@@ -2611,6 +2611,11 @@ img {
   width: 55px;
   height: 55px;
 }
+.article__post-thumbnail-wrapper img {
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
 .article__post-title {
   font-size: 12px;
   line-height: 1.5;

@@ -14,6 +14,8 @@
                 <?php
                 if (has_post_thumbnail()) {
                   the_post_thumbnail('large');
+                } else {
+                  echo "<img src='" . get_template_directory_uri() . "/images/no-thumbnail.jpg' alt='no-thumbnail'>";
                 }
                 ?>
               </div>
@@ -42,18 +44,30 @@
               <?php
               $prevPost = get_adjacent_post(true, '', true);
               $nextPost = get_adjacent_post(true, '', false);
+              if ($prevPost) {
+                $prevPostThumbnail = get_the_post_thumbnail($prevPost->ID, 'thumbnail');
+                if (!$prevPostThumbnail) {
+                  $prevPostThumbnail = "<img src='" . get_template_directory_uri() . "/images/no-thumbnail.jpg' alt='no-thumbnail'>";
+                }
+              }
+              if ($nextPost) {
+                $nextPostThumbnail = get_the_post_thumbnail($nextPost->ID, 'thumbnail');
+                if (!$nextPostThumbnail) {
+                  $nextPostThumbnail = "<img src='" . get_template_directory_uri() . "/images/no-thumbnail.jpg' alt='no-thumbnail'>";
+                }
+              }
               if ($prevPost || $nextPost): ?>
                 <div class="article__post-link-wrapper">
                   <?php if ($prevPost): ?>
                     <a class="article__post-link prev" href="<?php echo get_permalink($prevPost->ID) ?>">
-                      <div class="article__post-thumbnail-wrapper"><?php echo get_the_post_thumbnail($prevPost->ID, 'thumbnail') ?></div>
+                      <div class="article__post-thumbnail-wrapper"><?php echo $prevPostThumbnail ?></div>
                       <span class="article__post-title"><?php echo get_the_title($prevPost->ID) ?></span>
                     </a>
                   <?php endif; ?>
                   <?php if ($nextPost): ?>
                     <a class="article__post-link next" href="<?php echo get_permalink($nextPost->ID) ?>">
                       <span class="article__post-title"><?php echo get_the_title($nextPost->ID) ?></span>
-                      <div class="article__post-thumbnail-wrapper"><?php echo get_the_post_thumbnail($nextPost->ID, 'thumbnail') ?></div>
+                      <div class="article__post-thumbnail-wrapper"><?php echo $nextPostThumbnail ?></div>
                     </a>
                   <?php endif; ?>
                 </div>
@@ -70,7 +84,14 @@
                     <li class="article__recommend-list">
                       <a href="<?php echo get_permalink($posts[$i]->ID) ?>" class="article__recommend-link">
                         <div class="article__recommend-image-wrapper">
-                          <?php echo get_the_post_thumbnail($posts[$i]->ID, 'medium') ?>
+                          <?php
+                          $postThumbnail = get_the_post_thumbnail($posts[$i]->ID, 'medium');
+                          if ($postThumbnail) {
+                            echo $postThumbnail;
+                          } else {
+                            echo "<img src='" . get_template_directory_uri() . "/images/no-thumbnail.jpg' alt='no-thumbnail'>";
+                          }
+                          ?>
                         </div>
                         <span class="article__recommend-title"><?php echo get_the_title($posts[$i]->ID) ?></span>
                       </a>
