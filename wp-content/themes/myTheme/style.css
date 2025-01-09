@@ -201,7 +201,7 @@ img {
 }
 @media screen and (min-width: 1480px) {
   .header {
-    padding: 0 140px;
+    padding: 0 137.5px;
   }
 }
 .header__inner {
@@ -3002,7 +3002,7 @@ img {
 
 .title-area {
   height: 40vh;
-  background-color: #1bb4d4;
+  background-color: #E7F6FE;
   position: relative;
 }
 @media screen and (min-width: 1024px) {
@@ -3062,7 +3062,7 @@ img {
   }
 }
 .title-area .title-en {
-  color: #fff;
+  color: #41728B;
   font-size: 50px;
   font-weight: 700;
   text-transform: capitalize;
@@ -3078,7 +3078,7 @@ img {
   }
 }
 .title-area .title-jp {
-  color: #fff;
+  color: #41728B;
   font-size: 14px;
   font-weight: 700;
 }
@@ -3093,7 +3093,7 @@ img {
   }
 }
 .title-area .title-archive {
-  color: #fff;
+  color: #41728B;
   font-size: 24px;
   font-weight: 700;
 }
@@ -3108,7 +3108,7 @@ img {
   }
 }
 .title-area .title-sub {
-  color: #fff;
+  color: #41728B;
   font-size: 18px;
   font-weight: 700;
 }
@@ -3123,7 +3123,7 @@ img {
   }
 }
 .title-area .title-keyword {
-  color: #fff;
+  color: #41728B;
   font-size: 26px;
   font-weight: 700;
 }
@@ -3138,7 +3138,7 @@ img {
   }
 }
 .title-area .title-result {
-  color: #fff;
+  color: #41728B;
   font-size: 18px;
   font-weight: 700;
 }
