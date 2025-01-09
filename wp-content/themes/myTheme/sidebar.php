@@ -42,7 +42,11 @@ $posts = get_posts(array("numberposts" => 5,));
         <li class="sidebar__post">
           <a class="sidebar__post-link" href="<?php echo get_permalink($post->ID) ?>">
             <div class="sidebar__post-image-wrapper">
-              <?php echo get_the_post_thumbnail($post->ID, 'medium') ?>
+              <?php if ($thumbnail = get_the_post_thumbnail($post->ID, 'medium')): ?>
+                <?php echo $thumbnail ?>
+              <?php else: ?>
+                <img src="<?php echo get_template_directory_uri() ?>/images/no-thumbnail.jpg" alt="no-thumbnail">
+              <?php endif; ?>
             </div>
             <span class="sidebar__post-title"><?php echo get_the_title($post->ID) ?></span>
           </a>

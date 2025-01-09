@@ -7,8 +7,8 @@
       <?php
       if (has_post_thumbnail()) {
         the_post_thumbnail('large');
-      }else{
-        echo "<img src='". get_template_directory_uri() ."/images/no-thumbnail.jpg'>";
+      } else {
+        echo "<img src='" . get_template_directory_uri() . "/images/no-thumbnail.jpg' alt='no-thumbnail'>";
       }
       ?>
     </div>
