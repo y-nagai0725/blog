@@ -1723,15 +1723,23 @@ img {
 .article__main pre {
   margin: 0;
 }
-.article__main code {
-  padding: 4px 6px;
+.article__main p > code {
+  margin: 0 4px;
+  padding: 2px 4px;
+  border: 1px solid rgba(123, 123, 123, 0.3);
+  border-radius: 3px;
   background-color: #f7f7f7;
   font-family: "Source Code Pro", sans-serif;
+  color: #c72c4c;
   letter-spacing: 0;
 }
 .article__main mark.yellow {
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(50%, transparent), color-stop(50%, #fcee21));
   background-image: linear-gradient(to bottom, transparent 50%, #fcee21 50%);
+}
+.article__main mark.blue {
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(50%, transparent), color-stop(50%, rgba(27, 180, 212, 0.25)));
+  background-image: linear-gradient(to bottom, transparent 50%, rgba(27, 180, 212, 0.25) 50%);
 }
 .article__main .article-link {
   padding: 10px;
@@ -2438,6 +2446,30 @@ img {
   margin-top: 0 !important;
   margin-bottom: 24px !important;
 }
+.article__main .wp-block-button__link {
+  margin-bottom: 24px;
+  padding: 1em 2em;
+  border-radius: 3px;
+  border: 2px solid #1bb4d4;
+  background-color: #1bb4d4;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  -webkit-transition: color 0.3s ease-out, background-color 0.3s ease-out;
+  transition: color 0.3s ease-out, background-color 0.3s ease-out;
+}
+@media (any-hover: hover) {
+  .article__main .wp-block-button__link:hover {
+    color: #1bb4d4;
+    background-color: transparent;
+  }
+}
+@media screen and (min-width: 768px) {
+  .article__main .wp-block-button__link {
+    font-size: 16px;
+  }
+}
 .article__category-wrapper {
   margin-bottom: 16px;
 }
@@ -2461,7 +2493,6 @@ img {
   background-color: #1bb4d4;
   color: #fff;
   border-radius: 3px;
-  border: 1px solid #1bb4d4;
   font-size: 13px;
   -webkit-transition: color 0.3s ease-out, background-color 0.3s ease-out;
   transition: color 0.3s ease-out, background-color 0.3s ease-out;
@@ -2471,16 +2502,10 @@ img {
   width: 24px;
   height: 17px;
   background: url(images/folder-white.svg) center center/cover;
-  -webkit-transition: background-image 0.3s ease-out;
-  transition: background-image 0.3s ease-out;
 }
 @media (any-hover: hover) {
   .article__category-wrapper a:hover {
-    color: #1bb4d4;
-    background-color: #fff;
-  }
-  .article__category-wrapper a:hover::before {
-    background: url(images/folder-blue.svg) center center/cover;
+    background-color: #5A8B41;
   }
 }
 .article__tag-wrapper {

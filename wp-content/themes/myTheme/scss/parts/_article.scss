@@ -211,16 +211,24 @@
       margin: 0;
     }
 
-    code {
-      padding: 4px 6px;
+    p > code {
+      margin: 0 4px;
+      padding: 2px 4px;
+      border: 1px solid $border-gray;
+      border-radius: 3px;
       background-color: $bg-gray;
       font-family: $source-code-pro;
+      color: $text-code;
       letter-spacing: 0;
     }
 
     mark {
       &.yellow {
         background-image: linear-gradient(to bottom, transparent 50%, $yellow 50%);
+      }
+
+      &.blue {
+        background-image: linear-gradient(to bottom, transparent 50%, $blue-thin-1 50%);
       }
     }
 
@@ -918,6 +926,32 @@
       margin-top: 0 !important;
       margin-bottom: 24px !important;
     }
+
+    .wp-block-button__link {
+      margin-bottom: 24px;
+      padding: 1em 2em;
+      border-radius: 3px;
+      border: 2px solid $blue;
+      background-color: $blue;
+      text-align: center;
+      color: $text-white;
+      font-size: 14px;
+      font-weight: 700;
+      transition:
+        color 0.3s ease-out,
+        background-color 0.3s ease-out;
+
+      @media (any-hover: hover) {
+        &:hover {
+          color: $blue;
+          background-color: transparent;
+        }
+      }
+
+      @media screen and (min-width: 768px) {
+        font-size: 16px;
+      }
+    }
   }
 
   &__footer {
@@ -940,7 +974,6 @@
       background-color: $blue;
       color: $text-white;
       border-radius: 3px;
-      border: 1px solid $blue;
       font-size: 13px;
       transition:
         color 0.3s ease-out,
@@ -951,17 +984,11 @@
         width: 24px;
         height: 17px;
         background: url(images/folder-white.svg) center center / cover;
-        transition: background-image 0.3s ease-out;
       }
 
       @media (any-hover: hover) {
         &:hover {
-          color: $blue;
-          background-color: $text-white;
-
-          &::before {
-            background: url(images/folder-blue.svg) center center / cover;
-          }
+          background-color: $text-check;
         }
       }
     }

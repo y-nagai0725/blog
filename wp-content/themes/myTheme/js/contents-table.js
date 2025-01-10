@@ -77,7 +77,7 @@ function createArticleContentsTable() {
 function createSidebarContentsTable() {
   const headingList = article.querySelectorAll("h2, h3");
   headingList.forEach((heading, index) => {
-    headingPositionList.push(heading.getBoundingClientRect().top + window.scrollY);
+    headingPositionList.push(Math.floor(heading.getBoundingClientRect().top) + window.scrollY);
     const tag = heading.tagName;
     const title = heading.textContent;
     const li = document.createElement("li");
@@ -129,7 +129,7 @@ function setHeadingPositionList() {
   //目次対象の見出しの位置を取得、リストへ保持
   const headingList = article.querySelectorAll("h2, h3");
   headingList.forEach(heading => {
-    headingPositionList.push(heading.getBoundingClientRect().top + window.scrollY);
+    headingPositionList.push(Math.floor(heading.getBoundingClientRect().top) + window.scrollY);
   });
 }
 
