@@ -1,4 +1,6 @@
 <?php
+$count = $wp_query->found_posts;
+
 if (is_category()) {
   $archiveTitle = "カテゴリー：" . get_queried_object()->name;
 } elseif (is_tag()) {
@@ -21,8 +23,8 @@ if (is_category()) {
     <div class="title-area">
       <div class="title-wrapper">
         <h1 class="title">
-          <span class="title-sub">記事一覧</span>
-          <span class="title-archive"><?php echo $archiveTitle ?></span>
+          <span class="title-keyword"><?php echo $archiveTitle ?></span>
+          <span class="title-result">記事一覧：<?php echo $count . "件" ?></span>
         </h1>
       </div>
     </div>

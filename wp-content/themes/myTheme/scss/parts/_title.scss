@@ -1,7 +1,7 @@
 @use "../global" as *;
 
 .title-area {
-  height: 40vh;
+  height: 33vh;
   background-color: $bg-hint;
   position: relative;
 
@@ -9,7 +9,7 @@
   }
 
   @media screen and (min-width: 1024px) {
-    height: 400px;
+    height: 320px;
   }
 
   .title-wrapper {
@@ -74,34 +74,6 @@
 
     @media screen and (min-width: 1024px) {
       font-size: 18px;
-    }
-  }
-
-  .title-archive {
-    color: $text-hint;
-    font-size: 24px;
-    font-weight: 700;
-
-    @media screen and (min-width: 768px) {
-      font-size: 36px;
-    }
-
-    @media screen and (min-width: 1024px) {
-      font-size: 46px;
-    }
-  }
-
-  .title-sub {
-    color: $text-hint;
-    font-size: 18px;
-    font-weight: 700;
-
-    @media screen and (min-width: 768px) {
-      font-size: 24px;
-    }
-
-    @media screen and (min-width: 1024px) {
-      font-size: 32px;
     }
   }
 
