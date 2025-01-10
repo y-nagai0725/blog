@@ -186,6 +186,31 @@
       position: relative;
       transition: opacity 0.3s ease-out;
 
+      &::before {
+        content: attr(data-count);
+        position: absolute;
+        top: 50%;
+        right: 40px;
+        transform: translateY(-50%);
+        width: 26px;
+        height: 26px;
+        padding-top: 1px;
+        display: grid;
+        place-content: center;
+        border-radius: 100vmax;
+        background-color: $blue;
+        color: $text-white;
+        font-size: 10px;
+        font-weight: 700;
+        line-height: 1;
+
+        @media screen and (min-width: 768px) {
+          width: 30px;
+          height: 30px;
+          font-size: 11px;
+        }
+      }
+
       &::after {
         content: "";
         position: absolute;

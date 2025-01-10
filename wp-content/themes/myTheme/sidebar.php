@@ -1,5 +1,5 @@
 <?php
-$categories = get_categories();
+$categories = get_categories(array("orderby" => "count", "order" => "DESC"));
 $posts = get_posts(array("numberposts" => 5,));
 ?>
 <aside id="sidebar" class="sidebar">
@@ -29,13 +29,11 @@ $posts = get_posts(array("numberposts" => 5,));
       </div>
     </div>
     <h5 class="sidebar__heading">カテゴリー</h5>
-    <?php
-    wp_nav_menu(array(
-      'theme_location' => 'sidebar_nav',
-      'container' => false,
-      'menu_class' => 'sidebar__category-list',
-    ));
-    ?>
+    <ul class="sidebar__category-list">
+      <?php foreach ($categories as $category): ?>
+        <li><a href="<?php echo get_category_link($category) ?>" data-count="<?php echo $category->count ?>"><?php echo $category->name; ?></a></li>
+      <?php endforeach; ?>
+    </ul>
     <h5 class="sidebar__heading">最新の投稿</h5>
     <ul class="sidebar__post-list">
       <?php foreach ($posts as $post): ?>

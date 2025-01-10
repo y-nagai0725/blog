@@ -1073,6 +1073,32 @@ img {
   -webkit-transition: opacity 0.3s ease-out;
   transition: opacity 0.3s ease-out;
 }
+.sidebar__category-list a::before {
+  content: attr(data-count);
+  position: absolute;
+  top: 50%;
+  right: 40px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 26px;
+  height: 26px;
+  padding-top: 1px;
+  display: grid;
+  place-content: center;
+  border-radius: 100vmax;
+  background-color: #1bb4d4;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+}
+@media screen and (min-width: 768px) {
+  .sidebar__category-list a::before {
+    width: 30px;
+    height: 30px;
+    font-size: 11px;
+  }
+}
 .sidebar__category-list a::after {
   content: "";
   position: absolute;
