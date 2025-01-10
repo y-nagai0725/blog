@@ -1,0 +1,50 @@
+@use "../global" as *;
+
+.page-404-contents {
+  .title {
+    margin-bottom: 24px;
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background-color: $bg-gray;
+
+    @media screen and (min-width: 768px) {
+      margin-bottom: 40px;
+      padding: 64px 0;
+      gap: 20px;
+    }
+
+    .title-404 {
+      font-size: 100px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+
+      @media screen and (min-width: 768px) {
+        font-size: 120px;
+      }
+    }
+
+    .title-text {
+      font-size: 38px;
+      font-weight: 700;
+      color: $text-code;
+
+      @media screen and (min-width: 768px) {
+        font-size: 46px;
+      }
+    }
+  }
+
+  .text {
+    margin-bottom: 24px;
+    font-size: 16px;
+    font-weight: 700;
+
+    @media screen and (min-width: 768px) {
+      margin-bottom: 40px;
+      font-size: 18px;
+    }
+  }
+}

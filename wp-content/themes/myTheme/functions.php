@@ -78,7 +78,7 @@ function breadcrumb()
     $html .= '<li>' . get_the_title() . '</li>';
   } else if (is_404()) {
     // 404ページ
-    $html .= '<li>' . get_the_title() . '</li>';
+    $html .= '<li>404</li>';
   }
 
   $html .= '</ul></div>';
