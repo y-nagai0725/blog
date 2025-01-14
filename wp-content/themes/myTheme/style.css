@@ -1086,8 +1086,8 @@ img {
   display: grid;
   place-content: center;
   border-radius: 100vmax;
-  background-color: #1bb4d4;
-  color: #fff;
+  background-color: rgba(27, 180, 212, 0.08);
+  color: #3e3e3e;
   font-size: 10px;
   font-weight: 700;
   line-height: 1;
