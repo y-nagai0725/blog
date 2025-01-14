@@ -1,7 +1,6 @@
 <?php get_header(); ?>
 <main class="main">
   <div class="wrapper">
-    <?php echo breadcrumb(); ?>
     <div class="container">
       <div class="contents">
         <ul class="loop-contents">

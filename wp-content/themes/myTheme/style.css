@@ -2396,7 +2396,7 @@ img {
   counter-reset: h2Index;
 }
 .article__main .contents-table-wrapper .contents-table .h2-list-item {
-  padding-left: 18px;
+  padding-left: 24px;
   font-size: 14px;
   font-weight: 700;
   position: relative;
@@ -2423,7 +2423,7 @@ img {
 }
 @media screen and (min-width: 768px) {
   .article__main .contents-table-wrapper .contents-table .h2-list-item {
-    padding-left: 20px;
+    padding-left: 26px;
     font-size: 16px;
   }
   .article__main .contents-table-wrapper .contents-table .h2-list-item::before {
@@ -3058,7 +3058,7 @@ img {
 }
 @media screen and (min-width: 1024px) {
   .title-area {
-    height: 320px;
+    height: 400px;
   }
 }
 .title-area .title-wrapper {

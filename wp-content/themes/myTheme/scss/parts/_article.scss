@@ -841,7 +841,7 @@
         counter-reset: h2Index;
 
         .h2-list-item {
-          padding-left: 18px;
+          padding-left: 24px;
           font-size: 14px;
           font-weight: 700;
           position: relative;
@@ -869,7 +869,7 @@
           }
 
           @media screen and (min-width: 768px) {
-            padding-left: 20px;
+            padding-left: 26px;
             font-size: 16px;
 
             &::before {
