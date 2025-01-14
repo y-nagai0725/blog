@@ -9,23 +9,38 @@
   }
 
   &__inner {
+    margin-bottom: 40px;
+    padding: 0 20px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    gap: 30px;
+
+    @media screen and (min-width: 768px) {
+      padding: 0 30px;
+    }
+
+    @media screen and (min-width: 1024px) {
+      padding: 0 40px;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    @media screen and (min-width: 1180px) {
+      padding: 0;
+      margin-inline: auto;
+      max-width: 1180px;
+    }
+  }
+
+  &__left-box {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
   }
 
   &__title-link {
     padding: 10px 0;
     transition: opacity 0.3s ease-out;
-    margin-bottom: 34px;
-
-    @media screen and (min-width: 768px) {
-      margin-bottom: 28px;
-    }
-
-    @media screen and (min-width: 1024px) {
-      margin-bottom: 42px;
-    }
 
     @media (any-hover: hover) {
       &:hover {
@@ -42,14 +57,29 @@
     }
   }
 
-  &__nav {
-    margin-bottom: 30px;
+  &__sub-title {
+    display: block;
+    color: $text-white;
+    font-size: 12px;
+    font-weight: 700;
 
+    @media screen and (min-width: 768px) {
+      font-size: 13px;
+    }
+  }
+
+  &__right-box {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__nav {
     ul {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
+      flex-wrap: wrap;
+      column-gap: 24px;
+      row-gap: 4px;
     }
 
     a {
@@ -74,17 +104,6 @@
     }
 
     @media screen and (min-width: 768px) {
-      margin-bottom: 46px;
-
-      ul {
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        gap: 32px;
-      }
-    }
-
-    @media screen and (min-width: 1024px) {
       a {
         font-size: 14px;
       }
@@ -97,10 +116,43 @@
     }
   }
 
+  &__sns-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+
+    @media screen and (min-width: 1024px) {
+      justify-content: end;
+    }
+  }
+
+  &__sns-link {
+    padding: 10px 0;
+    transition:
+      opacity 0.3s ease-out,
+      transform 0.3s ease-out;
+
+    @media (any-hover: hover) {
+      &:hover {
+        opacity: 0.7;
+        transform: translateY(-3px);
+      }
+    }
+  }
+
+  &__sns-link-image {
+    width: 26px;
+  }
+
   &__copyright {
     display: block;
     font-size: 11px;
     font-weight: 700;
     color: $text-white;
+    text-align: center;
+
+    @media screen and (min-width: 1024px) {
+      text-align: right;
+    }
   }
 }
