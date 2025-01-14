@@ -1,19 +1,15 @@
 @use "../global" as *;
 
 .footer {
-  padding: 54px 0 16px;
+  padding: 54px 0 24px;
   background-color: $blue;
 
   @media screen and (min-width: 1024px) {
-    padding: 70px 0 16px;
+    padding: 70px 0 32px;
   }
 
   &__inner {
-    margin-bottom: 40px;
     padding: 0 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
 
     @media screen and (min-width: 768px) {
       padding: 0 30px;
@@ -21,8 +17,6 @@
 
     @media screen and (min-width: 1024px) {
       padding: 0 40px;
-      flex-direction: row;
-      justify-content: space-between;
     }
 
     @media screen and (min-width: 1180px) {
@@ -32,10 +26,26 @@
     }
   }
 
+  &__box-wrapper {
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    @media screen and (min-width: 1024px) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
   &__left-box {
     display: flex;
     flex-direction: column;
     gap: 14px;
+
+    @media screen and (min-width: 1024px) {
+      justify-content: space-between;
+    }
   }
 
   &__title-link {
@@ -50,10 +60,14 @@
   }
 
   &__title-image {
-    width: 150px;
+    width: 200px;
+
+    @media screen and (min-width: 768px) {
+      width: 240px;
+    }
 
     @media screen and (min-width: 1024px) {
-      width: 217px;
+      width: 280px;
     }
   }
 
@@ -71,7 +85,7 @@
   &__right-box {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
   }
 
   &__nav {
