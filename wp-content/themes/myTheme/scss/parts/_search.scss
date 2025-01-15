@@ -1,54 +1,23 @@
 @use "../global" as *;
 
-.page-404 {
-  &__title {
-    margin-bottom: 24px;
-    padding: 40px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    background-color: $bg-gray;
-
-    @media screen and (min-width: 768px) {
-      margin-bottom: 40px;
-      padding: 64px 0;
-      gap: 20px;
-    }
-  }
-
-  &__title-404 {
-    font-size: 100px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-
-    @media screen and (min-width: 768px) {
-      font-size: 120px;
-    }
-  }
-
-  &__title-text {
-    font-size: 38px;
-    font-weight: 700;
-    color: $text-code;
-
-    @media screen and (min-width: 768px) {
-      font-size: 46px;
-    }
-  }
-
-  &__text {
+.no-results {
+  &__message {
     display: block;
-    margin-bottom: 40px;
+    padding: 16px 0;
+    margin-bottom: 32px;
     font-size: 16px;
     font-weight: 700;
+    line-height: 2;
     text-align: center;
 
     @media screen and (min-width: 768px) {
+      padding: 24px 0;
+      margin-bottom: 40px;
       font-size: 20px;
     }
 
     @media screen and (min-width: 1024px) {
+      padding: 32px 0;
       margin-bottom: 56px;
       font-size: 22px;
     }
