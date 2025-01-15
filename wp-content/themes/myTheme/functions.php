@@ -55,10 +55,8 @@ function breadcrumb()
   if (is_category() || is_tag()) {
     // カテゴリページ・タグページ
     $html .= '<li>' . get_queried_object()->name . '</li>';
-  } else if (is_archive()) {
-    // アーカイブページ
-    //TODO
-  } elseif (is_search()) {
+  } else if (is_search()) {
+    // 検索結果ページ
     if (get_search_query()) {
       $html .= '<li>' . get_search_query() . '</li>';
     } else {

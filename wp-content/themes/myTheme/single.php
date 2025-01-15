@@ -74,7 +74,7 @@
               <?php endif; ?>
               <span class="article__recommend-text">RECOMMEND</span>
               <?php
-              $posts = get_posts(array("numberposts" => 4, "category" => get_the_category()[0]->ID, "exclude" => get_the_ID()));
+              $posts = get_posts(array("numberposts" => 4, "category" => get_the_category()[0]->cat_ID, "exclude" => get_the_ID()));
               if (!$posts):
               ?>
                 <span class="article__no-text">関連記事はありません</span>

@@ -5,7 +5,7 @@
         <a class="footer__title-link" href="<?php echo home_url() ?>">
           <img class="footer__title-image" src="<?php echo get_template_directory_uri() ?>/images/title-logo-white.svg" alt="<?php echo bloginfo("name") ?>">
         </a>
-        <span class="footer__sub-title">技術をアウトプットする為の備忘録ブログ</span>
+        <span class="footer__sub-title">技術をアウトプットする為の備忘録</span>
       </div>
       <div class="footer__right-box">
         <?php
