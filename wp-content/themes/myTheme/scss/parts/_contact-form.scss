@@ -1,0 +1,103 @@
+@use "../global" as *;
+
+.wpcf7 {
+  background-color: $bg-gray;
+  margin-bottom: 40px;
+  padding: 20px;
+  border-radius: 3px;
+}
+
+.wpcf7-form label {
+  font-size: 14px;
+  font-weight: 700;
+
+  .required {
+    margin-left: 3px;
+    color: $text-code;
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+  }
+}
+
+.wpcf7-form input[type="text"],
+.wpcf7-form input[type="email"] {
+  width: 100%;
+  margin-top: 0.4em;
+  padding: 0.5em 1em;
+  font-size: 16px;
+  font-weight: 400;
+  background-color: $text-white;
+  border-radius: 3px;
+  box-shadow: 0 0 0 1px $border-gray inset;
+  transition: box-shadow 0.3s ease-out;
+
+  &:focus {
+    box-shadow: 0 0 0 2px $blue inset;
+  }
+
+  &::placeholder {
+    color: $text-black-thin-2;
+  }
+
+  @media screen and (min-width: 768px) {
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 60%;
+  }
+}
+
+.wpcf7-form textarea {
+  width: 100%;
+  margin-top: 0.4em;
+  padding: 0.5em 1em;
+  font-size: 16px;
+  font-weight: 400;
+  background-color: $text-white;
+  border-radius: 3px;
+  box-shadow: 0 0 0 1px $border-gray inset;
+  transition: box-shadow 0.3s ease-out;
+
+  &:focus {
+    box-shadow: 0 0 0 2px $blue inset;
+  }
+}
+
+.wpcf7-form input[type="submit"] {
+  cursor: pointer;
+  display: block;
+  width: 180px;
+  padding: 1em 0;
+  margin-inline: auto;
+  border: 2px solid $blue;
+  border-radius: 3px;
+  background-color: $blue;
+  text-align: center;
+  color: $text-white;
+  font-size: 14px;
+  font-weight: 700;
+  transition:
+    background-color 0.3s ease-out,
+    color 0.3s ease-out;
+
+  @media (any-hover: hover) {
+    &:hover {
+      background-color: transparent;
+      color: $blue;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 200px;
+    font-size: 16px;
+  }
+}
+
+.wpcf7 .wpcf7-form .wpcf7-response-output{
+  font-size: 14px;
+  line-height: 1.6;
+  padding: 0.8em 1em;
+  margin: 0;
+}
