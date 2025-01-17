@@ -137,7 +137,7 @@ if (is_single() && !is_home() || is_page() && !is_front_page()) {
 //OGP用画像
 if (empty($ogp_img)) {
 
-  $ogp_img = get_template_directory_uri() . '/images/ogp_img.jpg'; //サイト全てに共通の画像へのパス
+  $ogp_img = get_template_directory_uri() . '/images/ogp_img.jpg';
 
 }
 
@@ -166,5 +166,3 @@ if (!empty($title)) {
 <?php if (is_tag() || is_date() || is_search() || is_404()): ?>
   <meta name="robots" content="noindex">
 <?php endif; ?>
-
-<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/images/favicon.ico">
