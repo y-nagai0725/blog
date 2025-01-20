@@ -20,8 +20,8 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    padding: 0 20px;
-    gap: 24px;
+    padding: 5px 20px;
+    column-gap: 24px;
 
     @media screen and (min-width: 768px) {
       padding: 0 30px;
@@ -61,7 +61,7 @@
   }
 
   a {
-    padding: 10px 0;
+    padding: 6px 0;
     color: $blue;
     transition: opacity 0.3s ease-out;
 
@@ -80,6 +80,7 @@
 .container {
   width: 100%;
   padding: 20px 20px 16px;
+  margin-top: 20px;
   background-color: $bg-inner-white;
   display: flex;
   flex-direction: column;
@@ -87,6 +88,7 @@
 
   @media screen and (min-width: 768px) {
     padding: 40px 30px 16px;
+    margin-top: 40px;
   }
 
   @media screen and (min-width: 1024px) {

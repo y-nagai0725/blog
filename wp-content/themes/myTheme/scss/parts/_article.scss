@@ -220,6 +220,7 @@
       font-family: $source-code-pro;
       color: $text-code;
       letter-spacing: 0;
+      line-height: 2;
     }
 
     mark {
@@ -454,6 +455,14 @@
 
         @media screen and (min-width: 768px) {
           font-size: 16px;
+        }
+      }
+
+      .link-text {
+        margin: 0;
+
+        a {
+          margin-right: 1em;
         }
       }
 

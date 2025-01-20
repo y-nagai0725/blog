@@ -19,6 +19,8 @@ add_shortcode("emphasis_area", "emphasis_area_shortcode");
 add_shortcode("list_area", "list_area_shortcode");
 add_shortcode("step_area", "step_area_shortcode");
 
+add_filter('wp_img_tag_add_auto_sizes', '__return_false');
+
 function myTheme_enqueue_googleFont()
 {
 
@@ -92,7 +94,7 @@ function article_link_shortcode($atts)
 
   $id = $atts["id"];
   $href = get_permalink($id);
-  if(!empty($atts["hash"])){
+  if (!empty($atts["hash"])) {
     $href .= $atts["hash"];
   }
   $title = get_the_title($id);
@@ -124,11 +126,17 @@ function emphasis_area_shortcode($atts)
     "mark" => "1",
     "type" => "1",
     "reverse" => "1",
+    "link_text" => "",
+    "link_text_link" => "",
+    "link_text_description" => "",
   ), $atts);
 
   $textHtml = "";
   if (!empty($atts["text"])) {
     $textHtml = '<span class="text">' . $atts["text"] . '</span>';
+  }
+  if (!empty($atts["link_text"]) && !empty($atts["link_text_link"])) {
+    $textHtml = '<p class="link-text"><a href="' . $atts["link_text_link"] . '" target="_blank">' . $atts["link_text"] . '</a>' . $atts["link_text_description"] . '</p>';
   }
 
   $listMark = "";
