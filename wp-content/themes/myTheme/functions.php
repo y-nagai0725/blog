@@ -85,8 +85,16 @@ function breadcrumb()
 
 function article_link_shortcode($atts)
 {
+  $atts = shortcode_atts(array(
+    "id" => "",
+    "hash" => "",
+  ), $atts);
+
   $id = $atts["id"];
   $href = get_permalink($id);
+  if(!empty($atts["hash"])){
+    $href .= $atts["hash"];
+  }
   $title = get_the_title($id);
   $thumbnail = get_the_post_thumbnail($id, "medium");
   $postDate = get_the_date("Y.m.d", $id);

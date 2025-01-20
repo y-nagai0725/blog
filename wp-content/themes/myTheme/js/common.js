@@ -10,3 +10,10 @@ window.addEventListener("scroll", function () {
     }
   });
 });
+
+if (location.hash) {
+  const headerHeight = document.querySelector(".header").offsetHeight;
+  setTimeout(() => {
+    window.scrollBy(0, -headerHeight);
+  }, 100);
+}
