@@ -1227,7 +1227,7 @@ img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 12px;
+  gap: 10px;
   -webkit-transition: opacity 0.3s ease-out;
   transition: opacity 0.3s ease-out;
   position: relative;
@@ -1265,23 +1265,23 @@ img {
 @media screen and (min-width: 1024px) {
   .sidebar__post-link {
     padding: 16px 24px 16px 0;
-    gap: 12px;
+    gap: 10px;
   }
 }
 .sidebar__post-image-wrapper {
   -ms-flex-negative: 0;
       flex-shrink: 0;
-  width: 128px;
+  width: 160px;
   aspect-ratio: 16/9;
 }
 @media screen and (min-width: 768px) {
   .sidebar__post-image-wrapper {
-    width: 160px;
+    width: 200px;
   }
 }
 @media screen and (min-width: 1024px) {
   .sidebar__post-image-wrapper {
-    width: 128px;
+    width: 162px;
   }
 }
 .sidebar__post-title {
@@ -1643,9 +1643,10 @@ img {
   margin-bottom: 24px;
 }
 .article__category-tag {
+  display: none;
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
   background-color: #fcee21;
   padding: 10px 16px;
   font-size: 12px;
@@ -2694,14 +2695,15 @@ img {
 }
 .article__post-link {
   width: 100%;
-  padding: 8px 24px;
+  padding: 16px 24px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 8px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
   background-color: #fff;
   -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
           box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
@@ -2732,12 +2734,6 @@ img {
   left: 8px;
   background: url(images/triangle-left.svg) center center/cover;
 }
-.article__post-link.next {
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  margin-left: auto;
-}
 .article__post-link.next::before {
   right: 8px;
   background: url(images/triangle-right.svg) center center/cover;
@@ -2750,13 +2746,10 @@ img {
 .article__post-thumbnail-wrapper {
   -ms-flex-negative: 0;
       flex-shrink: 0;
-  width: 55px;
-  height: 55px;
+  aspect-ratio: 16/9;
 }
 .article__post-thumbnail-wrapper img {
   height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
 }
 .article__post-title {
   font-size: 12px;
@@ -2765,6 +2758,11 @@ img {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
+}
+@media screen and (min-width: 768px) {
+  .article__post-title {
+    font-size: 14px;
+  }
 }
 .article__recommend-text {
   display: block;
@@ -2793,7 +2791,7 @@ img {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  gap: 16px;
+  gap: 24px;
   margin-bottom: 40px;
 }
 @media screen and (min-width: 1024px) {
@@ -2802,11 +2800,11 @@ img {
   }
 }
 .article__recommend-list {
-  width: calc(50% - 8px);
+  width: 100%;
 }
 @media screen and (min-width: 768px) {
   .article__recommend-list {
-    width: calc((100% - 48px) / 4);
+    width: calc(50% - 12px);
   }
 }
 .article__recommend-link {
@@ -2835,6 +2833,11 @@ img {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
+}
+@media screen and (min-width: 768px) {
+  .article__recommend-title {
+    font-size: 14px;
+  }
 }
 
 .page-wrapper p {
@@ -2939,9 +2942,10 @@ img {
   position: relative;
 }
 .loop-contents .article-category {
+  display: none;
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
   background-color: #fcee21;
   padding: 6px;
   font-size: 12px;
@@ -3292,7 +3296,7 @@ img {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  gap: 16px;
+  gap: 24px;
   margin-bottom: 40px;
 }
 @media screen and (min-width: 1024px) {
@@ -3301,11 +3305,11 @@ img {
   }
 }
 .no-results__recommend-list {
-  width: calc(50% - 8px);
+  width: 100%;
 }
 @media screen and (min-width: 768px) {
   .no-results__recommend-list {
-    width: calc((100% - 48px) / 4);
+    width: calc(50% - 12px);
   }
 }
 .no-results__recommend-link {
@@ -3334,6 +3338,11 @@ img {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
+}
+@media screen and (min-width: 768px) {
+  .no-results__recommend-title {
+    font-size: 14px;
+  }
 }
 .no-results__tag-list-wrapper {
   display: -webkit-box;

@@ -45,13 +45,13 @@
               $prevPost = get_adjacent_post(true, '', true);
               $nextPost = get_adjacent_post(true, '', false);
               if ($prevPost) {
-                $prevPostThumbnail = get_the_post_thumbnail($prevPost->ID, 'thumbnail');
+                $prevPostThumbnail = get_the_post_thumbnail($prevPost->ID, 'medium');
                 if (!$prevPostThumbnail) {
                   $prevPostThumbnail = "<img src='" . get_template_directory_uri() . "/images/no-thumbnail.jpg' alt='no-thumbnail'>";
                 }
               }
               if ($nextPost) {
-                $nextPostThumbnail = get_the_post_thumbnail($nextPost->ID, 'thumbnail');
+                $nextPostThumbnail = get_the_post_thumbnail($nextPost->ID, 'medium');
                 if (!$nextPostThumbnail) {
                   $nextPostThumbnail = "<img src='" . get_template_directory_uri() . "/images/no-thumbnail.jpg' alt='no-thumbnail'>";
                 }
@@ -66,13 +66,13 @@
                   <?php endif; ?>
                   <?php if ($nextPost): ?>
                     <a class="article__post-link next" href="<?php echo get_permalink($nextPost->ID) ?>">
-                      <span class="article__post-title"><?php echo get_the_title($nextPost->ID) ?></span>
                       <div class="article__post-thumbnail-wrapper"><?php echo $nextPostThumbnail ?></div>
+                      <span class="article__post-title"><?php echo get_the_title($nextPost->ID) ?></span>
                     </a>
                   <?php endif; ?>
                 </div>
               <?php endif; ?>
-              <span class="article__recommend-text">RECOMMEND</span>
+              <span class="article__recommend-text">関連記事</span>
               <?php
               $posts = get_posts(array("numberposts" => 4, "category" => get_the_category()[0]->cat_ID, "exclude" => get_the_ID()));
               if (!$posts):
