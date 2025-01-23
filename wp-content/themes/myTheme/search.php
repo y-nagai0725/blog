@@ -52,7 +52,7 @@ $count = $wp_query->found_posts;
                   <a href="<?php echo get_permalink($post->ID) ?>" class="no-results__recommend-link">
                     <div class="no-results__recommend-image-wrapper">
                       <?php
-                      $postThumbnail = get_the_post_thumbnail($post->ID, 'medium');
+                      $postThumbnail = get_the_post_thumbnail($post->ID, 'large');
                       if ($postThumbnail) {
                         echo $postThumbnail;
                       } else {

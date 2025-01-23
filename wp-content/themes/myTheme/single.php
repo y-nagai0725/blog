@@ -45,13 +45,13 @@
               $prevPost = get_adjacent_post(true, '', true);
               $nextPost = get_adjacent_post(true, '', false);
               if ($prevPost) {
-                $prevPostThumbnail = get_the_post_thumbnail($prevPost->ID, 'medium');
+                $prevPostThumbnail = get_the_post_thumbnail($prevPost->ID, 'large');
                 if (!$prevPostThumbnail) {
                   $prevPostThumbnail = "<img src='" . get_template_directory_uri() . "/images/no-thumbnail.jpg' alt='no-thumbnail'>";
                 }
               }
               if ($nextPost) {
-                $nextPostThumbnail = get_the_post_thumbnail($nextPost->ID, 'medium');
+                $nextPostThumbnail = get_the_post_thumbnail($nextPost->ID, 'large');
                 if (!$nextPostThumbnail) {
                   $nextPostThumbnail = "<img src='" . get_template_directory_uri() . "/images/no-thumbnail.jpg' alt='no-thumbnail'>";
                 }
@@ -74,31 +74,48 @@
               <?php endif; ?>
               <span class="article__recommend-text">関連記事</span>
               <?php
-              $posts = get_posts(array("numberposts" => 4, "category" => get_the_category()[0]->cat_ID, "exclude" => get_the_ID()));
-              if (!$posts):
+              $canSearch = false;
+              if (has_category() && has_tag()) {
+                $canSearch = true;
+                $tagIdList = array();
+                foreach (get_the_tags() as $tag) {
+                  array_push($tagIdList, $tag->term_id);
+                }
+                $args = array(
+                  'posts_per_page' => 4,
+                  'cat' => get_the_category()[0]->cat_ID,
+                  'tag__in' => $tagIdList,
+                  'post__not_in' => array(get_the_ID()),
+                  'order' => 'DESC',
+                  'orderby' => 'ID'
+                );
+
+                $wp_query = new WP_Query($args);
+              }
+              if (!$canSearch || !$wp_query->have_posts()):
               ?>
                 <span class="article__no-text">関連記事はありません</span>
               <?php else: ?>
                 <ul class="article__recommend-list-wrapper">
-                  <?php for ($i = 0; $i < count($posts); $i++): ?>
+                  <?php while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
                     <li class="article__recommend-list">
-                      <a href="<?php echo get_permalink($posts[$i]->ID) ?>" class="article__recommend-link">
+                      <a href="<?php echo the_permalink() ?>" class="article__recommend-link">
                         <div class="article__recommend-image-wrapper">
                           <?php
-                          $postThumbnail = get_the_post_thumbnail($posts[$i]->ID, 'medium');
-                          if ($postThumbnail) {
-                            echo $postThumbnail;
+                          if (has_post_thumbnail()) {
+                            the_post_thumbnail('large');
                           } else {
                             echo "<img src='" . get_template_directory_uri() . "/images/no-thumbnail.jpg' alt='no-thumbnail'>";
                           }
                           ?>
                         </div>
-                        <span class="article__recommend-title"><?php echo get_the_title($posts[$i]->ID) ?></span>
+                        <span class="article__recommend-title"><?php echo the_title() ?></span>
                       </a>
                     </li>
-                  <?php endfor; ?>
+                  <?php endwhile; ?>
                 </ul>
-              <?php endif; ?>
+              <?php endif;
+              wp_reset_postdata(); ?>
             </div>
           </article>
         <?php endif; ?>

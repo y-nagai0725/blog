@@ -2788,12 +2788,12 @@ img {
 }
 .article__no-text {
   display: block;
-  font-size: 18px;
+  font-size: 16px;
   margin-bottom: 40px;
 }
 @media screen and (min-width: 768px) {
   .article__no-text {
-    font-size: 20px;
+    font-size: 18px;
   }
 }
 .article__recommend-list-wrapper {
