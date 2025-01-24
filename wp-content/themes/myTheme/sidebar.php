@@ -12,7 +12,7 @@ $posts = get_posts(array("numberposts" => 5,));
         </div>
       </div>
       <div class="sidebar__author-information">
-        <span class="sidebar__author-name">みかん箱</span>
+        <span class="sidebar__author-name">管理者：みかん箱</span>
         <span class="sidebar__author-text">北海道札幌市在住。<br>web制作技術の定着の為、記事としてまとめアウトプットしていきます。最近はGSAPとWordPress勉強中です。</span>
         <ul class="sidebar__sns-wrapper">
           <li class="sidebar__sns-list">

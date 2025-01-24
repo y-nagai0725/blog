@@ -2597,6 +2597,9 @@ img {
     font-size: 16px;
   }
 }
+.article__main .cp_embed_wrapper {
+  margin-bottom: 24px;
+}
 .article__category-wrapper {
   margin-bottom: 16px;
 }
