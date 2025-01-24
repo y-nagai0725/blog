@@ -20,7 +20,7 @@
       ?>
       <<?php echo $title_tag ?> class="header__title">
         <a class="header__title-link" href="<?php echo home_url() ?>">
-          <img class="header__title-image" src="<?php echo get_template_directory_uri() ?>/images/title-logo-black.svg" alt="<?php echo bloginfo("name") ?>">
+          <img class="header__title-image" src="<?php echo get_template_directory_uri() ?>/images/title-logo-black.svg" alt="<?php echo bloginfo("name") ?>" width="150" height="20">
         </a>
       </<?php echo $title_tag ?>>
       <div class="header__right-box">

@@ -8,7 +8,7 @@ $posts = get_posts(array("numberposts" => 5,));
       <div class="sidebar__author-bg-wrapper">
         <div class="sidebar__author-bg"></div>
         <div class="sidebar__author-image-wrapper">
-          <img src="<?php echo get_template_directory_uri() ?>/images/sidebar_profile.png" alt="プロフィール画像" class="sidebar__author-image">
+          <img src="<?php echo get_template_directory_uri() ?>/images/sidebar_profile.png" alt="プロフィール画像" class="sidebar__author-image" width="90" height="70">
         </div>
       </div>
       <div class="sidebar__author-information">
@@ -17,12 +17,12 @@ $posts = get_posts(array("numberposts" => 5,));
         <ul class="sidebar__sns-wrapper">
           <li class="sidebar__sns-list">
             <a href="https://github.com/y-nagai0725" class="sidebar__sns-link" title="github" target="_blank">
-              <img src="<?php echo get_template_directory_uri() ?>/images/github-blue.svg" alt="github" class="sidebar__sns-link-image">
+              <img src="<?php echo get_template_directory_uri() ?>/images/github-blue.svg" alt="github" class="sidebar__sns-link-image" width="26" height="26">
             </a>
           </li>
           <li class="sidebar__sns-list">
             <a href="https://portfolio.mikanbako.jp/" class="sidebar__sns-link" title="ポートフォリオ" target="_blank">
-              <img src="<?php echo get_template_directory_uri() ?>/images/website-blue.svg" alt="ポートフォリオ" class="sidebar__sns-link-image">
+              <img src="<?php echo get_template_directory_uri() ?>/images/website-blue.svg" alt="ポートフォリオ" class="sidebar__sns-link-image" width="26" height="26">
             </a>
           </li>
         </ul>

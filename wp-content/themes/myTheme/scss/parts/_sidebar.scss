@@ -90,13 +90,16 @@
 
   &__author-image {
     width: 90px;
+    height: 70px;
 
     @media screen and (min-width: 768px) {
       width: 115px;
+      height: 90px;
     }
 
     @media screen and (min-width: 1024px) {
       width: 90px;
+      height: 70px;
     }
   }
 
@@ -170,6 +173,7 @@
 
   &__sns-link-image {
     width: 26px;
+    height: 26px;
   }
 
   &__category-list {

@@ -61,13 +61,17 @@
 
   &__title-image {
     width: 200px;
+    height: 26px;
+    object-fit: contain;
 
     @media screen and (min-width: 768px) {
       width: 240px;
+      height: 31px;
     }
 
     @media screen and (min-width: 1024px) {
       width: 280px;
+      height: 56px;
     }
   }
 
@@ -156,6 +160,7 @@
 
   &__sns-link-image {
     width: 26px;
+    height: 26px;
   }
 
   &__copyright {

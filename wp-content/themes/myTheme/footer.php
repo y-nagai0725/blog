@@ -3,7 +3,7 @@
     <div class="footer__box-wrapper">
       <div class="footer__left-box">
         <a class="footer__title-link" href="<?php echo home_url() ?>">
-          <img class="footer__title-image" src="<?php echo get_template_directory_uri() ?>/images/title-logo-white.svg" alt="<?php echo bloginfo("name") ?>">
+          <img class="footer__title-image" src="<?php echo get_template_directory_uri() ?>/images/title-logo-white.svg" alt="<?php echo bloginfo("name") ?>" width="200" height="26">
         </a>
         <span class="footer__sub-title">技術をアウトプットする為の備忘録</span>
       </div>
@@ -18,12 +18,12 @@
         <ul class="footer__sns-wrapper">
           <li class="footer__sns-list">
             <a href="https://github.com/y-nagai0725" class="footer__sns-link" title="github" target="_blank">
-              <img src="<?php echo get_template_directory_uri() ?>/images/github-white.svg" alt="github" class="footer__sns-link-image">
+              <img src="<?php echo get_template_directory_uri() ?>/images/github-white.svg" alt="github" class="footer__sns-link-image" width="26" height="26">
             </a>
           </li>
           <li class="footer__sns-list">
             <a href="https://portfolio.mikanbako.jp/" class="footer__sns-link" title="ポートフォリオ" target="_blank">
-              <img src="<?php echo get_template_directory_uri() ?>/images/website-white.svg" alt="ポートフォリオ" class="footer__sns-link-image">
+              <img src="<?php echo get_template_directory_uri() ?>/images/website-white.svg" alt="ポートフォリオ" class="footer__sns-link-image" width="26" height="26">
             </a>
           </li>
         </ul>

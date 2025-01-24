@@ -50,9 +50,12 @@
 
   &__title-image {
     width: 150px;
+    height: 20px;
+    object-fit: contain;
 
     @media screen and (min-width: 1024px) {
       width: 217px;
+      height: 28px;
     }
   }
 
