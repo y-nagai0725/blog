@@ -90,14 +90,14 @@
                   'orderby' => 'ID'
                 );
 
-                $wp_query = new WP_Query($args);
+                $recommendPosts = new WP_Query($args);
               }
-              if (!$canSearch || !$wp_query->have_posts()):
+              if (!$canSearch || !$recommendPosts->have_posts()):
               ?>
                 <span class="article__no-text">関連記事はありません</span>
               <?php else: ?>
                 <ul class="article__recommend-list-wrapper">
-                  <?php while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
+                  <?php while ($recommendPosts->have_posts()) : $recommendPosts->the_post(); ?>
                     <li class="article__recommend-list">
                       <a href="<?php echo the_permalink() ?>" class="article__recommend-link">
                         <div class="article__recommend-image-wrapper">
@@ -112,10 +112,10 @@
                         <span class="article__recommend-title"><?php echo the_title() ?></span>
                       </a>
                     </li>
-                  <?php endwhile; ?>
+                  <?php endwhile;
+                  wp_reset_postdata(); ?>
                 </ul>
-              <?php endif;
-              wp_reset_postdata(); ?>
+              <?php endif; ?>
             </div>
           </article>
         <?php endif; ?>
