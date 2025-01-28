@@ -1,0 +1,107 @@
+@use "../global" as *;
+
+.global-button {
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transform: translateY(140px);
+  transition: transform 0.3s ease-out;
+  z-index: 3;
+
+  &.js-actived {
+    transform: translateY(0);
+  }
+
+  @media screen and (min-width: 768px) {
+    bottom: 30px;
+    right: 20px;
+  }
+
+  &__contents-table-button {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 3px;
+    background-color: $text-white;
+    box-shadow: $box-shadow-card;
+    transition: background-color 0.3s ease-out;
+    position: relative;
+
+    &.no-display {
+      display: none;
+    }
+
+    .contents-table-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 20px;
+      height: 16px;
+      background: url(images/contents-table.svg) center center / cover;
+    }
+
+    @media screen and (min-width: 768px) {
+      width: 50px;
+      height: 50px;
+
+      .contents-table-icon {
+        width: 25px;
+        height: 20px;
+      }
+    }
+
+    @media screen and (min-width: 1024px) {
+      display: none;
+    }
+  }
+
+  &__top-back-button {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 100vmax;
+    background-color: $text-white;
+    box-shadow: $box-shadow-card;
+    transition: background-color 0.3s ease-out;
+    position: relative;
+
+    .caret-top {
+      position: absolute;
+      top: 52%;
+      left: 50%;
+      width: 6px;
+      height: 6px;
+      border-top: 2px solid $blue;
+      border-right: 2px solid $blue;
+      transform: translate(-50%, -50%) rotate(-45deg);
+      transition: border-color 0.3s ease-out;
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: $yellow;
+
+        .caret-top {
+          border-top: 2px solid $text-black;
+          border-right: 2px solid $text-black;
+        }
+      }
+    }
+
+    @media screen and (min-width: 768px) {
+      width: 50px;
+      height: 50px;
+
+      .caret-top {
+        width: 7px;
+        height: 7px;
+      }
+    }
+  }
+}

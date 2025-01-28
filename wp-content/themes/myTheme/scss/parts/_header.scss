@@ -327,7 +327,7 @@
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100svh;
+    height: 100vh;
     transition:
       background-color 0.3s ease-out,
       backdrop-filter 0.3s ease-out;
@@ -345,7 +345,7 @@
     top: 0;
     left: 100%;
     width: 250px;
-    height: 100svh;
+    height: 100vh;
     background-color: $blue;
     transition: transform 0.3s ease-out;
     z-index: 3;
@@ -417,126 +417,6 @@
         &::after {
           right: 34px;
         }
-      }
-    }
-  }
-
-  &__button-wrapper {
-    pointer-events: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100svh;
-    z-index: 2;
-
-    @media screen and (min-width: 1024px) {
-      height: 100vh;
-    }
-  }
-
-  &__contents-table-button {
-    pointer-events: auto;
-    position: absolute;
-    bottom: 70px;
-    right: 10px;
-    width: 40px;
-    height: 40px;
-    border-radius: 3px;
-    background-color: $text-white;
-    box-shadow: $box-shadow-card;
-    transform: translateY(140px);
-    transition:
-      background-color 0.3s ease-out,
-      transform 0.3s ease-out;
-
-    &.no-display {
-      display: none;
-    }
-
-    &.js-actived {
-      transform: translateY(0);
-    }
-
-    .contents-table-icon {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 20px;
-      height: 16px;
-      background: url(images/contents-table.svg) center center / cover;
-    }
-
-    @media screen and (min-width: 768px) {
-      bottom: 90px;
-      right: 20px;
-      width: 50px;
-      height: 50px;
-
-      .contents-table-icon {
-        width: 25px;
-        height: 20px;
-      }
-    }
-
-    @media screen and (min-width: 1024px) {
-      display: none;
-    }
-  }
-
-  &__top-back-button {
-    pointer-events: auto;
-    cursor: pointer;
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    width: 40px;
-    height: 40px;
-    border-radius: 100vmax;
-    background-color: $text-white;
-    box-shadow: $box-shadow-card;
-    transform: translateY(140px);
-    transition:
-      background-color 0.3s ease-out,
-      transform 0.3s ease-out;
-
-    &.js-actived {
-      transform: translateY(0);
-    }
-
-    .caret-top {
-      position: absolute;
-      top: 52%;
-      left: 50%;
-      width: 6px;
-      height: 6px;
-      border-top: 2px solid $blue;
-      border-right: 2px solid $blue;
-      transform: translate(-50%, -50%) rotate(-45deg);
-      transition: border-color 0.3s ease-out;
-    }
-
-    @media (any-hover: hover) {
-      &:hover {
-        background-color: $yellow;
-
-        .caret-top {
-          border-top: 2px solid $text-black;
-          border-right: 2px solid $text-black;
-        }
-      }
-    }
-
-    @media screen and (min-width: 768px) {
-      bottom: 20px;
-      right: 20px;
-      width: 50px;
-      height: 50px;
-
-      .caret-top {
-        width: 7px;
-        height: 7px;
       }
     }
   }

@@ -26,14 +26,17 @@ document.addEventListener("DOMContentLoaded", function () {
   //目次
   const contentsTableWrapper = document.querySelector(".sidebar__contents-table-wrapper");
 
-  //目次ボタン
-  const contentsTableButton = document.querySelector(".header__contents-table-button");
-
   //目次閉じるボタン
   const contentsTableCloseButton = document.querySelector(".sidebar__close-button");
 
+  //global-button
+  const globalButtonWrapper = document.querySelector(".global-button");
+
+  //目次ボタン
+  const contentsTableButton = document.querySelector(".global-button__contents-table-button");
+
   //トップへ戻るボタン
-  const topBackButton = document.querySelector(".header__top-back-button");
+  const topBackButton = document.querySelector(".global-button__top-back-button");
 
   //検索ボタンクリック時処理
   searchButton.addEventListener("click", function () {
@@ -85,11 +88,9 @@ document.addEventListener("DOMContentLoaded", function () {
   //スクロール時にトップへ戻るボタンと目次ボタン表示・非表示処理
   window.addEventListener("scroll", function () {
     if (window.scrollY >= 150) {
-      topBackButton.classList.add("js-actived");
-      contentsTableButton.classList.add("js-actived");
+      globalButtonWrapper.classList.add("js-actived");
     } else {
-      topBackButton.classList.remove("js-actived");
-      contentsTableButton.classList.remove("js-actived");
+      globalButtonWrapper.classList.remove("js-actived");
     }
   });
 

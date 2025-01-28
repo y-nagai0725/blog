@@ -83,4 +83,5 @@ $count = $wp_query->found_posts;
     </div>
   </div>
 </main>
+<?php get_template_part('global-button'); ?>
 <?php get_footer(); ?>
