@@ -253,3 +253,11 @@ function step_area_shortcode($atts)
 
   return $html;
 }
+
+function custom_search_include_custom_post_type($query) {
+  if ( !is_admin() && $query->is_main_query() && $query->is_search() ) {
+      // 検索対象を投稿ページのみにする
+      $query->set('post_type', 'post');
+  }
+}
+add_action('pre_get_posts', 'custom_search_include_custom_post_type');

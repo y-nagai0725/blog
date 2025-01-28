@@ -1,6 +1,18 @@
 <?php
-//検索結果件数
-$count = $wp_query->found_posts;
+if (empty(get_search_query())) {
+  $count = "---";
+  $exists = false;
+  $message = "キーワードを入力して検索してください。";
+} else {
+  $count = $wp_query->found_posts;
+  if ($count === 0) {
+    $exists = false;
+    $message = "該当する記事はありませんでした。<br>別のキーワードで検索してみてください。";
+  } else {
+    $exists = true;
+  }
+}
+
 ?>
 <?php get_header(); ?>
 <main class="main">
@@ -16,7 +28,7 @@ $count = $wp_query->found_posts;
     <?php echo breadcrumb(); ?>
     <div class="container">
       <div class="contents">
-        <?php if ($count): ?>
+        <?php if ($exists): ?>
           <ul class="loop-contents">
             <?php
             if (have_posts()) {
@@ -41,7 +53,7 @@ $count = $wp_query->found_posts;
           </div>
         <?php else: ?>
           <div class="no-results">
-            <span class="no-results__message">該当する記事はありませんでした。<br>別のキーワードで検索してみてください。</span>
+            <span class="no-results__message"><?php echo $message; ?></span>
             <span class="no-results__sub-title">こちらの記事はいかがですか？</span>
             <?php
             $posts = get_posts(array("numberposts" => 4, "orderby" => "rand",));
