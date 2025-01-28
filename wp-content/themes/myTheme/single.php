@@ -42,8 +42,8 @@
                 </div>
               <?php endif; ?>
               <?php
-              $prevPost = get_adjacent_post(true, '', true);
-              $nextPost = get_adjacent_post(true, '', false);
+              $prevPost = get_adjacent_post(false, '', true);
+              $nextPost = get_adjacent_post(false, '', false);
               if ($prevPost) {
                 $prevPostThumbnail = get_the_post_thumbnail($prevPost->ID, 'large');
                 if (!$prevPostThumbnail) {

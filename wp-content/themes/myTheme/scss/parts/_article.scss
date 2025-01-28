@@ -1118,6 +1118,7 @@
   &__post-thumbnail-wrapper {
     flex-shrink: 0;
     aspect-ratio: 16 / 9;
+    height: fit-content;
 
     img {
       height: 100%;

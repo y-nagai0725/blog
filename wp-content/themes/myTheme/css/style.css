@@ -259,19 +259,18 @@ img {
 @media screen and (min-width: 1024px) {
   .header__category-wrapper {
     height: 100%;
+    display: -ms-grid;
     display: grid;
     place-content: center;
     position: relative;
   }
   .header__category-wrapper.js-clicked nav {
-    -webkit-clip-path: inset(0 0 0 0);
-            clip-path: inset(0 0 0 0);
+    clip-path: inset(0 0 0 0);
   }
 }
 @media screen and (min-width: 1024px) and (any-hover: hover) {
   .header__category-wrapper:hover nav {
-    -webkit-clip-path: inset(0 0 0 0);
-            clip-path: inset(0 0 0 0);
+    clip-path: inset(0 0 0 0);
   }
 }
 @media screen and (min-width: 1024px) {
@@ -296,12 +295,9 @@ img {
   .header__nav {
     position: absolute;
     top: 100%;
-    -webkit-clip-path: inset(0 0 100% 0);
-            clip-path: inset(0 0 100% 0);
-    -webkit-transition: -webkit-clip-path 0.2s ease-out;
-    transition: -webkit-clip-path 0.2s ease-out;
+    clip-path: inset(0 0 100% 0);
+    -webkit-transition: clip-path 0.2s ease-out;
     transition: clip-path 0.2s ease-out;
-    transition: clip-path 0.2s ease-out, -webkit-clip-path 0.2s ease-out;
   }
   .header__nav ul {
     background-color: #1bb4d4;
@@ -350,16 +346,12 @@ img {
   width: 100vw;
   height: 60px;
   background-color: #f7f7f7;
-  -webkit-transition: -webkit-clip-path 0.3s ease-out;
-  transition: -webkit-clip-path 0.3s ease-out;
+  -webkit-transition: clip-path 0.3s ease-out;
   transition: clip-path 0.3s ease-out;
-  transition: clip-path 0.3s ease-out, -webkit-clip-path 0.3s ease-out;
-  -webkit-clip-path: inset(0 0 100% 0);
-          clip-path: inset(0 0 100% 0);
+  clip-path: inset(0 0 100% 0);
 }
 .header__searchform-wrapper.js-actived {
-  -webkit-clip-path: inset(0 0 0 0);
-          clip-path: inset(0 0 0 0);
+  clip-path: inset(0 0 0 0);
 }
 .header__searchform-wrapper .searchform {
   width: 100%;
@@ -395,6 +387,7 @@ img {
 .header__searchform-wrapper .searchform-button {
   height: 100%;
   width: 60px;
+  display: -ms-grid;
   display: grid;
   place-content: center;
 }
@@ -420,12 +413,10 @@ img {
     width: auto;
     height: auto;
     background-color: transparent;
-    -webkit-clip-path: none;
-            clip-path: none;
+    clip-path: none;
   }
   .header__searchform-wrapper.js-actived {
-    -webkit-clip-path: none;
-            clip-path: none;
+    clip-path: none;
   }
   .header__searchform-wrapper .searchform {
     width: 230px;
@@ -487,6 +478,7 @@ img {
 .header__search-button, .header__hamburger-menu-button {
   width: 60px;
   height: 100%;
+  display: -ms-grid;
   display: grid;
   place-content: center;
 }
@@ -565,6 +557,7 @@ img {
   width: 52px;
   height: 60px;
   margin-left: auto;
+  display: -ms-grid;
   display: grid;
   place-content: center;
 }
@@ -1034,6 +1027,7 @@ img {
   border-radius: 100vmax;
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: -ms-grid;
   display: grid;
   place-content: center;
   z-index: 1;
@@ -1175,6 +1169,7 @@ img {
   width: 26px;
   height: 26px;
   padding-top: 1px;
+  display: -ms-grid;
   display: grid;
   place-content: center;
   border-radius: 100vmax;
@@ -1387,6 +1382,7 @@ img {
   height: 100%;
   padding-left: 10px;
   margin-left: auto;
+  display: -ms-grid;
   display: grid;
   place-content: center;
 }
@@ -2424,6 +2420,7 @@ img {
   aspect-ratio: 16/9;
   margin-inline: auto;
   margin-bottom: 24px;
+  display: -ms-grid;
   display: grid;
   place-content: center;
   background-color: #f7f7f7;
@@ -2933,12 +2930,15 @@ img {
 }
 
 .loop-contents {
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 1fr;
   grid-template-columns: 1fr;
   gap: 16px;
 }
 @media screen and (min-width: 768px) {
   .loop-contents {
+    -ms-grid-columns: 1fr 24px 1fr;
     grid-template-columns: 1fr 1fr;
     gap: 24px;
   }
@@ -3078,6 +3078,7 @@ img {
   height: 32px;
   border: 2px solid #1bb4d4;
   border-radius: 3px;
+  display: -ms-grid;
   display: grid;
   place-content: center;
   color: #1bb4d4;
@@ -3135,6 +3136,7 @@ img {
   height: 32px;
   border: 2px solid rgba(123, 123, 123, 0.3);
   border-radius: 3px;
+  display: -ms-grid;
   display: grid;
   place-content: center;
   color: rgba(62, 62, 62, 0.75);
@@ -3150,6 +3152,7 @@ img {
 .pagination span.page-numbers.dots {
   width: 16px;
   height: 32px;
+  display: -ms-grid;
   display: grid;
   place-content: center;
   color: rgba(62, 62, 62, 0.75);
@@ -3695,4 +3698,4 @@ img {
   .page-404__tag-link {
     font-size: 16px;
   }
-}/*# sourceMappingURL=style.css.map */
+}
