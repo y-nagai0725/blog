@@ -42,32 +42,54 @@
                 </div>
               <?php endif; ?>
               <?php
-              $prevPost = get_adjacent_post(false, '', true);
-              $nextPost = get_adjacent_post(false, '', false);
-              if ($prevPost) {
-                $prevPostThumbnail = get_the_post_thumbnail($prevPost->ID, 'large');
+              $allPosts = get_posts(array(
+                'post_type' => 'post',
+                'posts_per_page' => -1,
+                'orderby' => 'date',
+                'order' => 'DESC',
+              ));
+
+              $postIdList = [];
+              foreach ($allPosts as $p) {
+                $postIdList[] = $p->ID;
+              }
+
+              $currentIndex = array_search($post->ID, $postIdList);
+              if ($currentIndex === 0) {
+                $prevPostId = $postIdList[$currentIndex + 1];
+                $nextPostId = 0;
+              } else if ($currentIndex === (count($postIdList) - 1)) {
+                $prevPostId = 0;
+                $nextPostId = $postIdList[$currentIndex - 1];
+              } else {
+                $prevPostId = $postIdList[$currentIndex + 1];
+                $nextPostId = $postIdList[$currentIndex - 1];
+              }
+
+              if ($prevPostId) {
+                $prevPostThumbnail = get_the_post_thumbnail($prevPostId, 'large');
                 if (!$prevPostThumbnail) {
                   $prevPostThumbnail = "<img src='" . get_template_directory_uri() . "/images/no-thumbnail.jpg' alt='no-thumbnail'>";
                 }
               }
-              if ($nextPost) {
-                $nextPostThumbnail = get_the_post_thumbnail($nextPost->ID, 'large');
+              if ($nextPostId) {
+                $nextPostThumbnail = get_the_post_thumbnail($nextPostId, 'large');
                 if (!$nextPostThumbnail) {
                   $nextPostThumbnail = "<img src='" . get_template_directory_uri() . "/images/no-thumbnail.jpg' alt='no-thumbnail'>";
                 }
               }
-              if ($prevPost || $nextPost): ?>
+              if ($prevPostId || $nextPostId): ?>
                 <div class="article__post-link-wrapper">
-                  <?php if ($prevPost): ?>
-                    <a class="article__post-link prev" href="<?php echo get_permalink($prevPost->ID) ?>">
+                  <?php if ($prevPostId): ?>
+                    <a class="article__post-link prev" href="<?php echo get_permalink($prevPostId) ?>">
                       <div class="article__post-thumbnail-wrapper"><?php echo $prevPostThumbnail ?></div>
-                      <span class="article__post-title"><?php echo get_the_title($prevPost->ID) ?></span>
+                      <span class="article__post-title"><?php echo get_the_title($prevPostId) ?></span>
                     </a>
                   <?php endif; ?>
-                  <?php if ($nextPost): ?>
-                    <a class="article__post-link next" href="<?php echo get_permalink($nextPost->ID) ?>">
+                  <?php if ($nextPostId): ?>
+                    <a class="article__post-link next" href="<?php echo get_permalink($nextPostId) ?>">
                       <div class="article__post-thumbnail-wrapper"><?php echo $nextPostThumbnail ?></div>
-                      <span class="article__post-title"><?php echo get_the_title($nextPost->ID) ?></span>
+                      <span class="article__post-title"><?php echo get_the_title($nextPostId) ?></span>
                     </a>
                   <?php endif; ?>
                 </div>
