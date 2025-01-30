@@ -38,6 +38,11 @@ document.addEventListener("DOMContentLoaded", function () {
   //トップへ戻るボタン
   const topBackButton = document.querySelector(".global-button__top-back-button");
 
+  //スクロール禁止
+  function noScroll(e) {
+    e.preventDefault();
+  }
+
   //検索ボタンクリック時処理
   searchButton.addEventListener("click", function () {
     searchformWrapper.classList.toggle("js-actived");
@@ -48,12 +53,18 @@ document.addEventListener("DOMContentLoaded", function () {
   hamburgerMenuButton.addEventListener("click", function () {
     mask.classList.add("js-actived");
     navSpWrapper.classList.add("js-actived");
+
+    document.addEventListener('touchmove', noScroll, { passive: false });
+    document.addEventListener('wheel', noScroll, { passive: false });
   });
 
   //閉じるボタンクリック時処理
   closeButton.addEventListener("click", function () {
     mask.classList.remove("js-actived");
     navSpWrapper.classList.remove("js-actived");
+
+    document.removeEventListener('touchmove', noScroll);
+    document.removeEventListener('wheel', noScroll);
   });
 
   //PCサイズへ画面リサイズ時にspのナビゲーションメニューを閉じる
@@ -62,6 +73,9 @@ document.addEventListener("DOMContentLoaded", function () {
       mask.classList.remove("js-actived");
       navSpWrapper.classList.remove("js-actived");
       contentsTableWrapper.classList.remove("js-actived");
+
+      document.removeEventListener('touchmove', noScroll);
+      document.removeEventListener('wheel', noScroll);
     }
   });
 
