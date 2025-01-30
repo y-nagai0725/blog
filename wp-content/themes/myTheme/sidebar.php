@@ -16,13 +16,13 @@ $posts = get_posts(array("numberposts" => 5,));
         <span class="sidebar__author-text">北海道札幌市在住。<br>web制作技術の定着の為、記事としてまとめアウトプットしていきます。最近はGSAPとWordPress勉強中です。</span>
         <ul class="sidebar__sns-wrapper">
           <li class="sidebar__sns-list">
-            <a href="https://github.com/y-nagai0725" class="sidebar__sns-link" title="github" target="_blank">
-              <img src="<?php echo get_template_directory_uri() ?>/images/github-blue.svg" alt="github" class="sidebar__sns-link-image" width="26" height="26">
+            <a href="https://github.com/y-nagai0725" class="sidebar__sns-link" title="GitHub" target="_blank">
+              <img src="<?php echo get_template_directory_uri() ?>/images/github-blue.svg" alt="github" class="sidebar__sns-link-image" width="26" height="26"><span class="sidebar__sns-link-text">GitHub</span>
             </a>
           </li>
           <li class="sidebar__sns-list">
             <a href="https://portfolio.mikanbako.jp/" class="sidebar__sns-link" title="ポートフォリオ" target="_blank">
-              <img src="<?php echo get_template_directory_uri() ?>/images/website-blue.svg" alt="ポートフォリオ" class="sidebar__sns-link-image" width="26" height="26">
+              <img src="<?php echo get_template_directory_uri() ?>/images/website-blue.svg" alt="ポートフォリオ" class="sidebar__sns-link-image" width="26" height="26"><span class="sidebar__sns-link-text">Portfolio</span>
             </a>
           </li>
         </ul>
