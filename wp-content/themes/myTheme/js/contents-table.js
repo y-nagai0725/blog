@@ -14,6 +14,9 @@ document.addEventListener("DOMContentLoaded", function () {
   //現在アクティブな目次項目
   let activedContentsTableItemIndex = 0;
 
+  /**
+   * 記事の目次作成
+   */
   function createArticleContentsTable() {
     const headingList = article.querySelectorAll("h2, h3");
     const firstH2Element = article.querySelector("h2");
@@ -78,6 +81,9 @@ document.addEventListener("DOMContentLoaded", function () {
     article.insertBefore(contentsTableWrapperElement, firstH2Element);
   }
 
+  /**
+   * サイドバーの目次作成
+   */
   function createSidebarContentsTable() {
     const headingList = article.querySelectorAll("h2, h3");
     headingList.forEach((heading, index) => {
@@ -106,6 +112,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  /**
+   * アンカーリンククリック時処理
+   */
   function setLinkClickEvent() {
     document.querySelectorAll("a[href^='#']").forEach(link => {
       link.addEventListener("click", function (e) {
@@ -141,6 +150,11 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  /**
+   * サイドバー目次をスクロールさせる
+   *
+   * @param {Number} targetIndex 対象のインデックス
+   */
   function scrollSidebarContentsTable(targetIndex) {
     let totalGapValue = 0;
     let totalItemHeight = 0;

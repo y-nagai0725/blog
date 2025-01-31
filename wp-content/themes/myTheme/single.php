@@ -54,16 +54,21 @@
                 $postIdList[] = $p->ID;
               }
 
-              $currentIndex = array_search($post->ID, $postIdList);
-              if ($currentIndex === 0) {
-                $prevPostId = $postIdList[$currentIndex + 1];
-                $nextPostId = 0;
-              } else if ($currentIndex === (count($postIdList) - 1)) {
+              if (count($postIdList) === 1) {
                 $prevPostId = 0;
-                $nextPostId = $postIdList[$currentIndex - 1];
+                $nextPostId = 0;
               } else {
-                $prevPostId = $postIdList[$currentIndex + 1];
-                $nextPostId = $postIdList[$currentIndex - 1];
+                $currentIndex = array_search($post->ID, $postIdList);
+                if ($currentIndex === 0) {
+                  $prevPostId = $postIdList[$currentIndex + 1];
+                  $nextPostId = 0;
+                } else if ($currentIndex === (count($postIdList) - 1)) {
+                  $prevPostId = 0;
+                  $nextPostId = $postIdList[$currentIndex - 1];
+                } else {
+                  $prevPostId = $postIdList[$currentIndex + 1];
+                  $nextPostId = $postIdList[$currentIndex - 1];
+                }
               }
 
               if ($prevPostId) {

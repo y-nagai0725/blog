@@ -9,6 +9,8 @@ add_theme_support('post-thumbnails');
 
 add_action('wp_enqueue_scripts', 'myTheme_enqueue_googleFont');
 add_action('wp_enqueue_scripts', 'myTheme_enqueue_style_script');
+add_action('pre_get_posts', 'custom_search_include_custom_post_type');
+add_action('pre_get_posts', 'custom_get_posts');
 
 register_nav_menu('header_nav', 'ヘッダー');
 register_nav_menu('header_nav-sp', 'ヘッダーsp');
@@ -262,7 +264,6 @@ function custom_search_include_custom_post_type($query)
     $query->set('orderby', array("date" => "DESC", "ID" => "DESC"));
   }
 }
-add_action('pre_get_posts', 'custom_search_include_custom_post_type');
 
 function custom_get_posts($query)
 {
@@ -270,4 +271,3 @@ function custom_get_posts($query)
     $query->set('orderby', array("date" => "DESC", "ID" => "DESC"));
   }
 }
-add_action('pre_get_posts', 'custom_get_posts');
